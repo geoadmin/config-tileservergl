@@ -19,6 +19,9 @@ function usage {
   echo -e "--efs \t the address (IP or DNS) to the EFS in which you want to plug your styles. By default, it's nowhere."
   echo -e "--user \t the user that will copy to the EFS. By default, it's nobody."
   echo "No more help for you, it's not a hard script to use."
+  echo "Well, okay, two examples of use with obviously incorrect values: "
+  echo "updateStyle.sh --path=/var/where/you/want/your/style --efs=8.8.8.8 --user=root"
+  echo "updateStyle.sh --path=/dev/null --efs=swisstopo --user=mike"
 }
 
 while [ "${1}" != "" ]; do
