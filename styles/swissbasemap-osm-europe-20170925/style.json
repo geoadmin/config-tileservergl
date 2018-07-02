@@ -63,14 +63,14 @@
     "intensity": 0
   },
   "sources": {
-    "relief-osm": {
-      "url": "mbtiles://{hillshade-europe-cut-mbtiles}",
+    "relief": {
+      "url": "mbtiles://{hillshade-europe-cut-2016-11-28/current}",
       "type": "raster",
       "tileSize": 256
     },
     "osm": {
       "type": "vector",
-      "url": "mbtiles://{osm-europe-cut-mbtiles}"
+      "url": "mbtiles://{osm-2017-07-24-v3.6.2-europe-cut-20170918/current}"
     },
     "relief": {
       "url": "local://tilejson/relief.json",
@@ -79,7 +79,7 @@
     },
     "swissbasemap": {
       "type": "vector",
-      "url": "mbtiles://{swissbasemap-mbtiles}"
+      "url": "mbtiles://{swissbasemap_20170929/current}"
     }
   },
   "sprite": "{styleJsonFolder}/sprite",

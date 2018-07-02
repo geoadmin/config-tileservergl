@@ -1,0 +1,22 @@
+{
+  "tilejson": "2.0.0",
+  "version": "1.0.0",
+  "scheme": "xyz",
+  "id": "swisstoposwissimage",
+  "attribution": "<a href=\"http://www.swisstopo.ch/\" target=\"_blank\">&copy; swisstopo</a>",
+  "center": "8.5388,47.3434,12",
+  "description": "SwissImage from swisstopo",
+  "maxzoom": 22,
+  "minzoom": 5,
+  "name": "swisstopo",
+  "bounds": [
+    5.0,
+    45.0,
+    10.0,
+    50.0
+  ],
+  "tiles": [
+    "http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/WMTS/tile/1.0.0/USGSImageryOnly/default/GoogleMapsCompatible/{z}/{y}/{x}.png"
+  ]
+}
+
