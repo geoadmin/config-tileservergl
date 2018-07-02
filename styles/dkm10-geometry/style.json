@@ -1,68 +1,68 @@
 {
-  "version": 8,
-  "name": "Test DKM10 Geometry",
-  "metadata": {
-    "mapbox:autocomposite": false,
-    "mapbox:type": "template",
-    "maputnik:renderer": "mbgljs",
-    "openmaptiles:version": "3.x"
-  },
-  "sources": {
-    "dkm10_geometry": {
-      "type": "vector",
-      "url": "mbtiles://{dkm10_geometry}"
-    }
-  },
-  "sprite": "{styleJsonFolder}/sprite",
-  "glyphs": "{fontstack}/{range}.pbf",
-  "layers": [
-    {
-      "id": "Background",
-      "type": "background",
-      "paint": {
-        "background-color": "rgba(222, 222, 222, 1)"
-      }
-    },
-    {
-      "id": "DKM10_GEWAESSER",
-      "type": "fill",
-      "source": "dkm10_geometry",
-      "source-layer": "DKM10_GEWAESSER_PLY",
-      "minzoom": 10,
-      "maxzoom": 20,
-      "paint": {
-        "fill-color": "rgba(0, 122, 209, 1)"
-      }
-    },
-    {
-      "id": "DKM10_BODENBEDECKUNG",
-      "type": "fill",
-      "source": "dkm10_geometry",
-      "source-layer": "DKM10_BODENBEDECKUNG",
-      "minzoom": 10,
-      "maxzoom": 20,
-      "paint": {
-        "fill-color": "rgba(148, 224, 148, 1)"
-      },
-      "layout": {
-        "visibility": "visible"
-      }
-    },
-    {
-      "id": "DKM10_GEBAEUDE",
-      "type": "fill",
-      "source": "dkm10_geometry",
-      "source-layer": "DKM10_GEBAEUDE",
-      "minzoom": 10,
-      "maxzoom": 20,
-      "paint": {
-        "fill-color": "rgba(50, 50, 50, 1)"
-      },
-      "layout": {
-        "visibility": "visible"
-      }
-    }
-  ],
-  "id": "dkm10_geometry",
-  "owner": "swisstopo"
+    "glyphs": "{fontstack}/{range}.pbf", 
+    "id": "dkm10_geometry", 
+    "layers": [
+        {
+            "id": "Background", 
+            "paint": {
+                "background-color": "rgba(222, 222, 222, 1)"
+            }, 
+            "type": "background"
+        }, 
+        {
+            "id": "DKM10_GEWAESSER", 
+            "maxzoom": 20, 
+            "minzoom": 10, 
+            "paint": {
+                "fill-color": "rgba(0, 122, 209, 1)"
+            }, 
+            "source": "dkm10_geometry", 
+            "source-layer": "DKM10_GEWAESSER_PLY", 
+            "type": "fill"
+        }, 
+        {
+            "id": "DKM10_BODENBEDECKUNG", 
+            "layout": {
+                "visibility": "visible"
+            }, 
+            "maxzoom": 20, 
+            "minzoom": 10, 
+            "paint": {
+                "fill-color": "rgba(148, 224, 148, 1)"
+            }, 
+            "source": "dkm10_geometry", 
+            "source-layer": "DKM10_BODENBEDECKUNG", 
+            "type": "fill"
+        }, 
+        {
+            "id": "DKM10_GEBAEUDE", 
+            "layout": {
+                "visibility": "visible"
+            }, 
+            "maxzoom": 20, 
+            "minzoom": 10, 
+            "paint": {
+                "fill-color": "rgba(50, 50, 50, 1)"
+            }, 
+            "source": "dkm10_geometry", 
+            "source-layer": "DKM10_GEBAEUDE", 
+            "type": "fill"
+        }
+    ], 
+    "metadata": {
+        "mapbox:autocomposite": false, 
+        "mapbox:type": "template", 
+        "maputnik:renderer": "mbgljs", 
+        "openmaptiles:version": "3.x"
+    }, 
+    "name": "Test DKM10 Geometry", 
+    "owner": "swisstopo", 
+    "sources": {
+        "dkm10_geometry": {
+            "type": "vector", 
+            "url": "mbtiles://{dkm10_geometry}"
+        }
+    }, 
+    "sprite": "{styleJsonFolder}/sprite", 
+    "version": 8
 }
