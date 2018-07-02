@@ -1,44 +1,44 @@
 {
-    "version": 8,
-    "name": "Swissimage",
-    "metadata": {
-        "mapbox:type": "template",
-        "mapbox:groups": {},
-        "mapbox:autocomposite": false,
-        "mapbox:sdk-support": {
-            "js": "0.27.0"
-        }
-    },
+    "bearing": 0, 
     "center": [
-        6.629301922295383,
+        6.629301922295383, 
         46.52314287556172
-    ],
-    "zoom": 14.680156433390838,
-    "bearing": 0,
-    "pitch": 0,
-    "light": {
-        "intensity": 0.16
-    },
-    "sources": {
-	"swissimageWMTS": {
-            "type": "raster",
-            "url": "local://tilejson/swissimage.json",
-            "tileSize": 256
-        }
-    },
-    "sprite": "{styleJsonFolder}/sprite",
-    "glyphs": "{fontstack}/{range}.pbf",
+    ], 
+    "created": "2017-04-03T15:33:52.382Z", 
+    "draft": false, 
+    "glyphs": "{fontstack}/{range}.pbf", 
+    "id": "swissimage", 
     "layers": [
         {
-            "id": "swissImage",
-            "type": "raster",
-            "source": "swissimageWMTS"
+            "id": "swissImage", 
+            "source": "swissimageWMTS", 
+            "type": "raster"
         }
-    ],
-    "created": "2017-04-03T15:33:52.382Z",
-    "id": "swissimage",
-    "modified": "2017-04-04T09:00:15.336Z",
-    "owner": "vib2d",
-    "visibility": "private",
-    "draft": false
+    ], 
+    "light": {
+        "intensity": 0.16
+    }, 
+    "metadata": {
+        "mapbox:autocomposite": false, 
+        "mapbox:groups": {}, 
+        "mapbox:sdk-support": {
+            "js": "0.27.0"
+        }, 
+        "mapbox:type": "template"
+    }, 
+    "modified": "2017-04-04T09:00:15.336Z", 
+    "name": "Swissimage", 
+    "owner": "vib2d", 
+    "pitch": 0, 
+    "sources": {
+        "swissimageWMTS": {
+            "tileSize": 256, 
+            "type": "raster", 
+            "url": "local://tilejson/swissimage.json"
+        }
+    }, 
+    "sprite": "{styleJsonFolder}/sprite", 
+    "version": 8, 
+    "visibility": "private", 
+    "zoom": 14.680156433390838
 }
