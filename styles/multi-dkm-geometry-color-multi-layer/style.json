@@ -199,7 +199,7 @@
     "sources": {
         "MultiDKM": {
             "type": "vector", 
-            "url": "mbtiles://{multi-dkm-geometry-onelayer-mbtiles}"
+            "url": "mbtiles://{multi_dkm_geometry_onelayer}"
         }
     }, 
     "sprite": "{styleJsonFolder}/sprite", 

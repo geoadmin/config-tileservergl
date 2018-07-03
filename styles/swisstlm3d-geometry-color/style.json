@@ -96,7 +96,7 @@
     "sources": {
         "swisstlm3d-geometry": {
             "type": "vector", 
-            "url": "mbtiles://{swisstlm3d-geometry-mbtiles}"
+            "url": "mbtiles://{swisstlm3d-geometry}"
         }
     }, 
     "sprite": "{styleJsonFolder}/sprite", 

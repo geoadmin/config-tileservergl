@@ -8373,15 +8373,15 @@
         }, 
         "FSME": {
             "type": "vector", 
-            "url": "mbtiles://fsme.mbtiles"
+            "url": "mbtiles://{fsme}"
         }, 
         "OEV_Haltestellen": {
             "type": "vector", 
-            "url": "mbtiles://oev_haltestellen.mbtiles"
+            "url": "mbtiles://{oev_haltestellen}"
         }, 
         "Wanderwege": {
             "type": "vector", 
-            "url": "mbtiles://wanderwege.mbtiles"
+            "url": "mbtiles://{wanderwege}"
         }, 
         "lightbasemap": {
             "type": "vector", 

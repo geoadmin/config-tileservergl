@@ -7891,7 +7891,7 @@
     "sources": {
         "DKM10_GEWAESSER_LIN": {
             "type": "vector", 
-            "url": "mbtiles://{:wDKM10_GEWAESSER_LIN}"
+            "url": "mbtiles://{DKM10_GEWAESSER_LIN}"
         }, 
         "lightbasemap": {
             "type": "vector", 

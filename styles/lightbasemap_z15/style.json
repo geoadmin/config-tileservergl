@@ -7083,7 +7083,7 @@
     "sources": {
         "lightbasemap": {
             "type": "vector", 
-            "url": "mbtiles://lightbasemap_z15.mbtiles"
+            "url": "mbtiles://{lightbasemap_z15}"
         }, 
         "relief": {
             "type": "vector", 

@@ -126,7 +126,7 @@
     "sources": {
         "MultiDKM": {
             "type": "vector", 
-            "url": "mbtiles://multi_dkm_geometry.mbtiles"
+            "url": "mbtiles://{multi_dkm_geometry}"
         }
     }, 
     "sprite": "{styleJsonFolder}/sprite", 
