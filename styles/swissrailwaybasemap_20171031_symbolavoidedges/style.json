@@ -15860,25 +15860,25 @@
     "sources": {
         "gipfel": {
             "type": "vector", 
-            "url": "https://tileserver.dev.bgdi.ch/data/gipfel-mbtiles.json"
+            "url": "mbtiles://{gipfel}"
         }, 
         "osm": {
             "type": "vector", 
-            "url": "https://tileserver.dev.bgdi.ch/data/osm-europe-cut-mbtiles.json"
+            "url": "mbtiles://{osm-2017-07-24-v3.6.2-europe-cut-20170918}"
         }, 
         "relief": {
             "tileSize": 256, 
             "type": "raster", 
-            "url": "https://tileserver.dev.bgdi.ch/tilejson/relief.json"
+            "url": "local://tilejson/relief.json"
         }, 
         "relief-osm": {
             "tileSize": 256, 
             "type": "raster", 
-            "url": "https://tileserver.dev.bgdi.ch/data/hillshade-europe-cut-mbtiles.json"
+            "url": "mbtiles://{hillshade-europe-cut-2016-11-28}"
         }, 
         "swissbasemap": {
             "type": "vector", 
-            "url": "https://tileserver.dev.bgdi.ch/data/swissbasemap-mbtiles.json"
+            "url": "mbtiles://{swissbasemap_20170929}"
         }
     }, 
     "sprite": "https://tileserver.dev.bgdi.ch/styles/swissbasemap-osm-integrated/sprite", 

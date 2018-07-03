@@ -15796,7 +15796,7 @@
         }, 
         "osm": {
             "type": "vector", 
-            "url": "mbtiles://{osm-2017-07-24-v3}"
+            "url": "mbtiles://{osm-2017-07-24-v3.6.2-europe-cut-20170918}"
         }, 
         "relief": {
             "tileSize": 256, 
