@@ -1,84 +1,84 @@
 {
-  "version": 8,
-  "name": "Test Multi-DKM Geometry Color",
-  "metadata": {
-    "mapbox:autocomposite": false,
-    "mapbox:type": "template",
-    "maputnik:renderer": "mbgljs",
-    "openmaptiles:version": "3.x"
-  },
-  "sources": {
-    "MultiDKM": {
-      "type": "vector",
-      "url": "mbtiles://{multi-dkm-geometry-onelayer-mbtiles}"
-    }
-  },
-  "sprite": "{styleJsonFolder}/sprite",
-  "glyphs": "{fontstack}/{range}.pbf",
-  "layers": [
-    {
-      "id": "Background",
-      "type": "background",
-      "paint": {
-        "background-color": "rgba(222, 222, 222, 1)"
-      }
-    },
-    {
-      "id": "DKM_GEWAESSER",
-      "type": "fill",
-      "source": "MultiDKM",
-      "source-layer": "multi-dkm-layer",
-      "filter": [
-        "any",
-        [
-          "==",
-          "objektart",
-          "200"
-        ],
-        [
-          "==",
-          "objektart",
-          "100"
-        ]
-      ],
-      "paint": {
-        "fill-color": "rgba(0, 122, 209, 1)"
-      }
-    },
-    {
-      "id": "DKM_GEBAEUDE",
-      "type": "fill",
-      "source": "MultiDKM",
-      "source-layer": "multi-dkm-layer",
-      "filter": [
-        "all",
-        [
-          "==",
-          "objektart",
-          "300"
-        ]
-      ],
-      "paint": {
-        "fill-color": {
-          "stops": [
-            [
-              10,
-              "rgba(216, 119, 109, 1)"
-            ],
-            [
-              14,
-              "rgba(118, 210, 113, 1)"
-            ],
-            [
-              16,
-              "rgba(175, 89, 212, 1)"
-            ]
-          ]
-        },
-        "fill-outline-color": "rgba(111, 58, 8, 1)"
-      }
-    }
-  ],
-  "id": "multi-dkm-geometry-color",
-  "owner": "swisstopo"
+    "glyphs": "{fontstack}/{range}.pbf", 
+    "id": "multi-dkm-geometry-color", 
+    "layers": [
+        {
+            "id": "Background", 
+            "paint": {
+                "background-color": "rgba(222, 222, 222, 1)"
+            }, 
+            "type": "background"
+        }, 
+        {
+            "filter": [
+                "any", 
+                [
+                    "==", 
+                    "objektart", 
+                    "200"
+                ], 
+                [
+                    "==", 
+                    "objektart", 
+                    "100"
+                ]
+            ], 
+            "id": "DKM_GEWAESSER", 
+            "paint": {
+                "fill-color": "rgba(0, 122, 209, 1)"
+            }, 
+            "source": "multi_dkm_geometry", 
+            "source-layer": "multi-dkm-layer", 
+            "type": "fill"
+        }, 
+        {
+            "filter": [
+                "all", 
+                [
+                    "==", 
+                    "objektart", 
+                    "300"
+                ]
+            ], 
+            "id": "DKM_GEBAEUDE", 
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            10, 
+                            "rgba(216, 119, 109, 1)"
+                        ], 
+                        [
+                            14, 
+                            "rgba(118, 210, 113, 1)"
+                        ], 
+                        [
+                            16, 
+                            "rgba(175, 89, 212, 1)"
+                        ]
+                    ]
+                }, 
+                "fill-outline-color": "rgba(111, 58, 8, 1)"
+            }, 
+            "source": "multi_dkm_geometry", 
+            "source-layer": "multi-dkm-layer", 
+            "type": "fill"
+        }
+    ], 
+    "metadata": {
+        "mapbox:autocomposite": false, 
+        "mapbox:type": "template", 
+        "maputnik:renderer": "mbgljs", 
+        "openmaptiles:version": "3.x"
+    }, 
+    "name": "Test Multi-DKM Geometry Color", 
+    "owner": "swisstopo", 
+    "sources": {
+        "MultiDKM": {
+            "type": "vector", 
+            "url": "mbtiles://{multi-dkm-geometry-onelayer-mbtiles}"
+        }
+    }, 
+    "sprite": "{styleJsonFolder}/sprite", 
+    "version": 8
 }

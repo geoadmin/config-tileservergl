@@ -1,104 +1,104 @@
 {
-	"version": 8,
-	"name": "SwissTLM3d Geometry Color",
-	"metadata": {
-		"mapbox:autocomposite": false,
-		"mapbox:type": "template",
-		"maputnik:renderer": "mbgljs",
-		"openmaptiles:version": "3.x"
-	},
-	"sources": {
-		"swisstlm3d-geometry": {
-			"type": "vector",
-			"url": "mbtiles://{swisstlm3d-geometry-mbtiles}"
-		}
-	},
-	"layers": [
-		{
-			"id": "Gewaesser",
-			"type": "fill",
-			"source": "swisstlm3d-geometry",
-			"source-layer": "TLM_BODENBEDECKUNG",
-			"filter": [
-				"any",
-                                 [
-					"==",
-					"objektart",
-					"10"
-				],
-	                        [
-					"==",
-					"objektart",
-					"5"
-				]
-			],
-			"paint": {
-				"fill-color": "rgba(30, 152, 249, 1)"
-			}
-		},
-	        {
-			"id": "Wald",
-			"type": "fill",
-			"source": "swisstlm3d-geometry",
-			"source-layer": "TLM_BODENBEDECKUNG",
-			"filter": [
-				"all", [
-					"==",
-					"objektart",
-					"12"
-				]
-			],
-                        "paint": {
-                          "fill-color": {
-                            "stops": [
-                              [
-                                10,
-                                "rgba(234, 79, 54, 1)"
-                              ],
-                              [
-                                12,
-                                "rgba(186, 218, 94, 1)"
-                              ],
-                              [
-                                14,
-                                "rgba(111, 58, 8, 1)"
-                              ]
-                            ]
-                          },
-                          "fill-outline-color": {
-                            "stops": [
-                             [
-                                10,
-                                "rgba(184, 29, 4, 1)"
-                              ],
-                              [
-                                12,
-                                "rgba(136, 168, 44, 1)"
-                              ],
-                              [
-                                14,
-                                "rgba(111, 58, 8, 1)"
-                              ]
-                            ]
-                          }
-                        }
-		},
-                {
-			"id": "Gebaeude",
-			"type": "fill",
-			"source": "swisstlm3d-geometry",
-			"source-layer": "TLM_GEBAEUDE_FOOTPRINT",
-			"filter": [
-				"all"
-			],
-			"paint": {
-				"fill-color": "rgba(50, 50, 50, 1)"
-			}
-		}
-	
-	],
-    "sprite": "{styleJsonFolder}/sprite",
-    "glyphs": "{fontstack}/{range}.pbf",
-	"id": "swisstlm3d-geometrie",
-	"owner": "swisstopo"
+    "glyphs": "{fontstack}/{range}.pbf", 
+    "id": "swisstlm3d-geometrie", 
+    "layers": [
+        {
+            "filter": [
+                "any", 
+                [
+                    "==", 
+                    "objektart", 
+                    "10"
+                ], 
+                [
+                    "==", 
+                    "objektart", 
+                    "5"
+                ]
+            ], 
+            "id": "Gewaesser", 
+            "paint": {
+                "fill-color": "rgba(30, 152, 249, 1)"
+            }, 
+            "source": "swisstlm3d-geometry", 
+            "source-layer": "TLM_BODENBEDECKUNG", 
+            "type": "fill"
+        }, 
+        {
+            "filter": [
+                "all", 
+                [
+                    "==", 
+                    "objektart", 
+                    "12"
+                ]
+            ], 
+            "id": "Wald", 
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            10, 
+                            "rgba(234, 79, 54, 1)"
+                        ], 
+                        [
+                            12, 
+                            "rgba(186, 218, 94, 1)"
+                        ], 
+                        [
+                            14, 
+                            "rgba(111, 58, 8, 1)"
+                        ]
+                    ]
+                }, 
+                "fill-outline-color": {
+                    "stops": [
+                        [
+                            10, 
+                            "rgba(184, 29, 4, 1)"
+                        ], 
+                        [
+                            12, 
+                            "rgba(136, 168, 44, 1)"
+                        ], 
+                        [
+                            14, 
+                            "rgba(111, 58, 8, 1)"
+                        ]
+                    ]
+                }
+            }, 
+            "source": "swisstlm3d-geometry", 
+            "source-layer": "TLM_BODENBEDECKUNG", 
+            "type": "fill"
+        }, 
+        {
+            "filter": [
+                "all"
+            ], 
+            "id": "Gebaeude", 
+            "paint": {
+                "fill-color": "rgba(50, 50, 50, 1)"
+            }, 
+            "source": "swisstlm3d-geometry", 
+            "source-layer": "TLM_GEBAEUDE_FOOTPRINT", 
+            "type": "fill"
+        }
+    ], 
+    "metadata": {
+        "mapbox:autocomposite": false, 
+        "mapbox:type": "template", 
+        "maputnik:renderer": "mbgljs", 
+        "openmaptiles:version": "3.x"
+    }, 
+    "name": "SwissTLM3d Geometry Color", 
+    "owner": "swisstopo", 
+    "sources": {
+        "swisstlm3d-geometry": {
+            "type": "vector", 
+            "url": "mbtiles://{swisstlm3d-geometry-mbtiles}"
+        }
+    }, 
+    "sprite": "{styleJsonFolder}/sprite", 
+    "version": 8
 }
