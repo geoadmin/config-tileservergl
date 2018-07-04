@@ -137,7 +137,7 @@ for directory in "$git_path"/styles/* ; do
   read -r -a time <<< $(git -C "$git_path" log --pretty=format:%at -- "$directory")
   dirname=${directory##*/}
 
-  base_path="$output_path/$dirname"
+  base_path="$output_path/styles/$dirname"
 
   for index in "${!commit[@]}" ; do
     # The path to the specific version of the style is created. the UNIX timestamp is first
@@ -201,7 +201,7 @@ for directory in "$git_path"/styles/* ; do
             let source_length=${#source}
             id="${source:1:$source_length-2}"
             if [[ ! -d "$tiles_path/$id" ]] && [[ ! -L "$tiles_path/$id" ]] && [[ ! -f "$tiles_path/$id.json" ]] && [[ ! -f "$tiles_path/$id.geojson" ]] && [[ ! "$id" = "http"* ]] ; then
-              echo "source not found or invalid format in $style_name : $id"
+              (>&2 echo "source not found or invalid format in $style_name : $id")
               validationflag=2
             fi
           fi
@@ -209,7 +209,7 @@ for directory in "$git_path"/styles/* ; do
         if [[ "${validationflag}" = 1 ]] ; then
           echo "$style_name has all needed sources"
         elif [[ "${validationflag}" = 2 ]] ; then
-          (>2& echo "WARNING : $style_name is lacking some layer sources. It might not display correctly")
+          (>&2 echo "WARNING : $style_name is lacking some layer sources. It might not display correctly")
         else
           (>&2 echo "ERROR : $style_name is lacking some base sources, deleting this version of the style")
           rm -rf "$version_path" || :
@@ -221,6 +221,7 @@ for directory in "$git_path"/styles/* ; do
     # IF NOTHING : OUT
     if [[ $(ls "$base_path") = "" ]] ; then
       rm -rf "$base_path" || :
+      (>&2 echo -e "\033[1;31mERROR : Not a single good version for $dirname\033[0m")
     fi
   done
 done
