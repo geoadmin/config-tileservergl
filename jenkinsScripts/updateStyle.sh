@@ -137,7 +137,7 @@ for directory in "$git_path"/styles/* ; do
   read -r -a time <<< $(git -C "$git_path" log --pretty=format:%at -- "$directory")
   dirname=${directory##*/}
 
-  base_path="$output_path/$dirname"
+  base_path="$output_path/styles/$dirname"
 
   for index in "${!commit[@]}" ; do
     # The path to the specific version of the style is created. the UNIX timestamp is first
