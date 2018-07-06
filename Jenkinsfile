@@ -4,11 +4,11 @@
 node(label: "jenkins-slave") {
   final gitBranch = env.BRANCH_NAME
     parameters {
-      string(name: 'Destination', defaultValue: '', description: 'This should be empty, except to test the output in a separate folder'),
-      string(name: 'Efs', defaultValue: 'eu-west-1b.fs-da0ee213.efs.eu-west-1.amazonaws.com://dev/vectortiles', description: 'The volume in the efs where we write'),
-      string(name: 'Tiles', defaultValue: 'mbtiles', description: 'Where are the sources at localvolume/destination'),
-      string(name: 'LocalVolume', defaultValue: '/var/local/efs-dev/vectortiles', description: 'Where to mount the efs'),
-      string(name: 'GitPath', defaultValue: '.', description: 'The relative path to the git repository'
+      string(name: 'Destination', defaultValue: '', description: 'This should be empty, except to test the output in a separate folder')
+      string(name: 'Efs', defaultValue: 'eu-west-1b.fs-da0ee213.efs.eu-west-1.amazonaws.com://dev/vectortiles', description: 'The volume in the efs where we write')
+      string(name: 'Tiles', defaultValue: 'mbtiles', description: 'Where are the sources at localvolume/destination')
+      string(name: 'LocalVolume', defaultValue: '/var/local/efs-dev/vectortiles', description: 'Where to mount the efs')
+      string(name: 'GitPath', defaultValue: '.', description: 'The relative path to the git repository')
 }
 
 }
