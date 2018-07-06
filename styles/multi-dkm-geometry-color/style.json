@@ -27,7 +27,7 @@
             "paint": {
                 "fill-color": "rgba(0, 122, 209, 1)"
             }, 
-            "source": "multi_dkm_geometry", 
+            "source": "MultiDKM", 
             "source-layer": "multi-dkm-layer", 
             "type": "fill"
         }, 
@@ -60,7 +60,7 @@
                 }, 
                 "fill-outline-color": "rgba(111, 58, 8, 1)"
             }, 
-            "source": "multi_dkm_geometry", 
+            "source": "MultiDKM", 
             "source-layer": "multi-dkm-layer", 
             "type": "fill"
         }

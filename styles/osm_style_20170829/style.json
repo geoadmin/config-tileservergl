@@ -39,7 +39,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "landcover", 
             "type": "fill"
         }, 
@@ -79,7 +79,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "landcover", 
             "type": "fill"
         }, 
@@ -117,7 +117,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "park", 
             "type": "fill"
         }, 
@@ -157,7 +157,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "aeroway", 
             "type": "line"
         }, 
@@ -196,7 +196,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "aeroway", 
             "type": "line"
         }, 
@@ -236,7 +236,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "aeroway", 
             "type": "fill"
         }, 
@@ -268,7 +268,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "landuse", 
             "type": "fill"
         }, 
@@ -286,7 +286,7 @@
             "paint": {
                 "fill-color": "#ececec"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "landuse", 
             "type": "fill"
         }, 
@@ -325,7 +325,7 @@
                 }, 
                 "raster-saturation": 0
             }, 
-            "source": "relief.json", 
+            "source": "relief", 
             "type": "raster"
         }, 
         {
@@ -344,7 +344,7 @@
                 "line-color": "hsl(0, 0%, 100%)", 
                 "line-width": 2
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "landuse", 
             "type": "line"
         }, 
@@ -376,7 +376,7 @@
                 }, 
                 "fill-outline-color": "hsl(100, 62%, 92%)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "landuse", 
             "type": "fill"
         }, 
@@ -439,7 +439,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "waterway", 
             "type": "line"
         }, 
@@ -486,7 +486,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "waterway", 
             "type": "line"
         }, 
@@ -499,7 +499,7 @@
             "paint": {
                 "fill-color": "hsl(200, 53%, 74%)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "water", 
             "type": "fill"
         }, 
@@ -538,7 +538,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -588,7 +588,7 @@
                 "text-halo-color": "hsl(200, 53%, 74%)", 
                 "text-halo-width": 0
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "waterway", 
             "type": "symbol"
         }, 
@@ -649,7 +649,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "boundary", 
             "type": "line"
         }, 
@@ -697,7 +697,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "boundary", 
             "type": "line"
         }, 
@@ -806,7 +806,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -905,7 +905,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -966,7 +966,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1014,7 +1014,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1085,7 +1085,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1140,7 +1140,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1213,7 +1213,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1269,7 +1269,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1331,7 +1331,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1392,7 +1392,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1453,7 +1453,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1509,7 +1509,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1570,7 +1570,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1630,7 +1630,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1693,7 +1693,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1761,7 +1761,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1810,7 +1810,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1863,7 +1863,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1932,7 +1932,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -1998,7 +1998,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2037,7 +2037,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "building", 
             "type": "line"
         }, 
@@ -2062,7 +2062,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "building", 
             "type": "fill"
         }, 
@@ -2096,7 +2096,7 @@
                 "fill-opacity": 1, 
                 "fill-outline-color": "hsl(230, 26%, 88%)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "fill"
         }, 
@@ -2174,7 +2174,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2276,7 +2276,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2379,7 +2379,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2426,7 +2426,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2470,7 +2470,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2514,7 +2514,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2583,7 +2583,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2645,7 +2645,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2690,7 +2690,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2738,7 +2738,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2786,7 +2786,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2831,7 +2831,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2880,7 +2880,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -2945,7 +2945,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3000,7 +3000,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3064,7 +3064,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3126,7 +3126,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3173,7 +3173,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3216,7 +3216,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3259,7 +3259,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3365,7 +3365,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3420,7 +3420,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3489,7 +3489,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3550,7 +3550,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3594,7 +3594,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3642,7 +3642,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3690,7 +3690,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3735,7 +3735,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3780,7 +3780,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3841,7 +3841,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3876,7 +3876,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "circle"
         }, 
@@ -3914,7 +3914,7 @@
                     ]
                 }
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation", 
             "type": "line"
         }, 
@@ -3963,7 +3963,7 @@
             "paint": {
                 "text-color": "hsl(200, 55%, 31%)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "water_name", 
             "type": "symbol"
         }, 
@@ -4018,7 +4018,7 @@
                 "text-halo-width": 0, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "water_name", 
             "type": "symbol"
         }, 
@@ -4073,7 +4073,7 @@
                 "text-halo-width": 0, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "water_name", 
             "type": "symbol"
         }, 
@@ -4139,7 +4139,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "aeroway", 
             "type": "symbol"
         }, 
@@ -4194,7 +4194,7 @@
                 "text-halo-width": 1, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4242,7 +4242,7 @@
                 "text-halo-width": 1, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4296,7 +4296,7 @@
                 "text-halo-width": 1, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4344,7 +4344,7 @@
                 "text-halo-width": 1, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4387,7 +4387,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4438,7 +4438,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4494,7 +4494,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4545,7 +4545,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4644,7 +4644,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4764,7 +4764,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4867,7 +4867,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -4967,7 +4967,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 1.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -5083,7 +5083,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 1.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -5198,7 +5198,7 @@
                 "text-halo-width": 1.5, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -5266,7 +5266,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5330,7 +5330,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5394,7 +5394,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5460,7 +5460,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5524,7 +5524,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5590,7 +5590,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5641,7 +5641,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation_name", 
             "type": "symbol"
         }, 
@@ -5690,7 +5690,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation_name", 
             "type": "symbol"
         }, 
@@ -5737,7 +5737,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation_name", 
             "type": "symbol"
         }, 
@@ -5788,7 +5788,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation_name", 
             "type": "symbol"
         }, 
@@ -5840,7 +5840,7 @@
                 "text-color": "hsl(0, 0%, 20%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "transportation_name", 
             "type": "symbol"
         }, 
@@ -5903,7 +5903,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -5967,7 +5967,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -6039,7 +6039,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 2
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -6115,7 +6115,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "poi", 
             "type": "symbol"
         }, 
@@ -6193,7 +6193,7 @@
                 }, 
                 "text-halo-width": 1.75
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -6271,7 +6271,7 @@
                 }, 
                 "text-halo-width": 1.75
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }, 
@@ -6361,7 +6361,7 @@
                 }, 
                 "text-halo-width": 1.75
             }, 
-            "source": "osm-2017-07-24-v3.6.2-europe-cut-20170918", 
+            "source": "osm", 
             "source-layer": "place", 
             "type": "symbol"
         }
