@@ -1343,7 +1343,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -1386,7 +1386,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -2329,7 +2329,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -2378,7 +2378,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -2422,7 +2422,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -2466,7 +2466,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -2510,7 +2510,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -3646,7 +3646,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -3689,7 +3689,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -3732,7 +3732,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -4866,7 +4866,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -4910,7 +4910,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -4954,7 +4954,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -6089,7 +6089,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -6134,7 +6134,7 @@
                     ]
                 }
             }, 
-            "source": "wanderwege", 
+            "source": "Wanderwege", 
             "source-layer": "wanderwege-layer", 
             "type": "line"
         }, 
@@ -7236,7 +7236,7 @@
             "paint": {
                 "fill-color": "rgba(199, 157, 76, 0.22)"
             }, 
-            "source": "fsme", 
+            "source": "FSME", 
             "source-layer": "fsme-layer", 
             "type": "fill"
         }, 
@@ -7317,7 +7317,7 @@
                 "text-halo-color": "hsla(225, 65%, 36%, 1)", 
                 "text-halo-width": 1
             }, 
-            "source": "oev_haltestellen", 
+            "source": "OEV_Haltestellen", 
             "source-layer": "oev_haltestellen-layer", 
             "type": "symbol"
         }, 
