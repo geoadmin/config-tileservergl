@@ -190,7 +190,7 @@
                     ]
                 }
             }, 
-            "source": "relief.json", 
+            "source": "relief", 
             "type": "raster"
         }, 
         {
@@ -6885,7 +6885,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -6981,7 +6981,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7089,7 +7089,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7197,7 +7197,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7305,7 +7305,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7413,7 +7413,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7521,7 +7521,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7629,7 +7629,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7753,7 +7753,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }, 
@@ -7825,7 +7825,7 @@
                     0
                 ]
             }, 
-            "source": "swissnames_lv03", 
+            "source": "swissnames", 
             "source-layer": "swissnames", 
             "type": "symbol"
         }

@@ -38,7 +38,7 @@
                 "fill-color": "rgba(255, 255, 255, 1)", 
                 "fill-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -70,7 +70,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -98,7 +98,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -141,7 +141,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -171,7 +171,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -203,7 +203,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -221,7 +221,7 @@
             "paint": {
                 "fill-color": "#ececec"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -260,7 +260,7 @@
                 }, 
                 "raster-saturation": 0
             }, 
-            "source": "relief.json", 
+            "source": "relief", 
             "type": "raster"
         }, 
         {
@@ -280,7 +280,7 @@
                 "line-color": "hsl(0, 0%, 100%)", 
                 "line-width": 2
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -322,7 +322,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -362,7 +362,7 @@
                 }, 
                 "fill-outline-color": "hsl(100, 62%, 92%)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -399,7 +399,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -447,7 +447,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -493,7 +493,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -511,7 +511,7 @@
             "paint": {
                 "fill-color": "hsl(200, 53%, 74%)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -529,7 +529,7 @@
             "paint": {
                 "fill-color": "hsl(200, 53%, 74%)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -547,7 +547,7 @@
             "paint": {
                 "fill-color": "hsl(200, 53%, 74%)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -586,7 +586,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -639,7 +639,7 @@
                 "text-halo-color": "hsl(200, 53%, 74%)", 
                 "text-halo-width": 0
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -686,7 +686,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -779,7 +779,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -871,7 +871,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -924,7 +924,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -964,7 +964,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1017,7 +1017,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1054,7 +1054,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1112,7 +1112,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1153,7 +1153,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1206,7 +1206,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1258,7 +1258,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1311,7 +1311,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1359,7 +1359,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1412,7 +1412,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1464,7 +1464,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1545,7 +1545,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1630,7 +1630,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1656,7 +1656,7 @@
                 "fill-opacity": 1, 
                 "fill-outline-color": "hsl(230, 26%, 88%)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -1722,7 +1722,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1807,7 +1807,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1888,7 +1888,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1924,7 +1924,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -1963,7 +1963,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2027,7 +2027,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2081,7 +2081,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2134,7 +2134,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2192,7 +2192,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2245,7 +2245,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2282,7 +2282,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2322,7 +2322,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2390,7 +2390,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2432,7 +2432,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2492,7 +2492,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2549,7 +2549,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2606,7 +2606,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2660,7 +2660,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2698,7 +2698,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2751,7 +2751,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2804,7 +2804,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2869,7 +2869,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -2958,7 +2958,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3051,7 +3051,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3095,7 +3095,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3138,7 +3138,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3206,7 +3206,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3269,7 +3269,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3330,7 +3330,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3375,7 +3375,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3423,7 +3423,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3496,7 +3496,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3543,7 +3543,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3603,7 +3603,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3663,7 +3663,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3707,7 +3707,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3738,7 +3738,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "fill"
         }, 
@@ -3784,7 +3784,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3842,7 +3842,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3903,7 +3903,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3950,7 +3950,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -3993,7 +3993,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4061,7 +4061,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4154,7 +4154,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4200,7 +4200,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4262,7 +4262,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4323,7 +4323,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4386,7 +4386,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4446,7 +4446,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4490,7 +4490,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4538,7 +4538,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4611,7 +4611,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4657,7 +4657,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4718,7 +4718,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4779,7 +4779,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4825,7 +4825,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4883,7 +4883,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4943,7 +4943,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -4990,7 +4990,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5033,7 +5033,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5101,7 +5101,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5194,7 +5194,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5240,7 +5240,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5303,7 +5303,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5364,7 +5364,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5409,7 +5409,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5457,7 +5457,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5530,7 +5530,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5576,7 +5576,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5637,7 +5637,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5698,7 +5698,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5744,7 +5744,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5802,7 +5802,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5862,7 +5862,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5909,7 +5909,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -5952,7 +5952,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6020,7 +6020,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6113,7 +6113,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6159,7 +6159,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6222,7 +6222,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6283,7 +6283,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6328,7 +6328,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6376,7 +6376,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6449,7 +6449,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6495,7 +6495,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6556,7 +6556,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6617,7 +6617,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6663,7 +6663,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6721,7 +6721,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6781,7 +6781,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6828,7 +6828,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6871,7 +6871,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -6939,7 +6939,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7032,7 +7032,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7078,7 +7078,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7141,7 +7141,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7202,7 +7202,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7247,7 +7247,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7295,7 +7295,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7368,7 +7368,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7414,7 +7414,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7475,7 +7475,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7536,7 +7536,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7574,7 +7574,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "circle"
         }, 
@@ -7612,7 +7612,7 @@
                     ]
                 }
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "line"
         }, 
@@ -7662,7 +7662,7 @@
                 "text-halo-width": 1, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -7705,7 +7705,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -7748,7 +7748,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -7793,7 +7793,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -7838,7 +7838,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -7883,7 +7883,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -7928,7 +7928,7 @@
                 "text-halo-width": 1.25, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8033,7 +8033,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8123,7 +8123,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8208,7 +8208,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 1.5
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8267,7 +8267,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8328,7 +8328,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8389,7 +8389,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8438,7 +8438,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8488,7 +8488,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8535,7 +8535,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8583,7 +8583,7 @@
                 "text-color": "hsl(0, 0%, 40%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8637,7 +8637,7 @@
                 "text-halo-width": 1, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8687,7 +8687,7 @@
                 "text-halo-width": 0, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8753,7 +8753,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8801,7 +8801,7 @@
                 "text-color": "hsl(0, 0%, 20%)", 
                 "text-halo-color": "hsla(35, 17%, 76%, 0)"
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8867,7 +8867,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8924,7 +8924,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 0.5
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -8992,7 +8992,7 @@
                 "text-halo-color": "hsl(0, 0%, 100%)", 
                 "text-halo-width": 2
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }, 
@@ -9065,7 +9065,7 @@
                 "text-halo-width": 2, 
                 "text-opacity": 1
             }, 
-            "source": "swissbasemap_20170929", 
+            "source": "swissbasemap", 
             "source-layer": "swissbasemap-layer", 
             "type": "symbol"
         }
