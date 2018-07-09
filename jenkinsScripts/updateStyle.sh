@@ -1,7 +1,6 @@
 #! /bin/bash
 #
-# A simple script that should be placed at the root of the git containing the configurations.
-# The goal is to pull the configurations, and then copy them via scp where they truly belong.
+# The goal is to pull the configurations, and then copy them via scp and/or rsync where they truly belong.
 # Since it might be in a public repository, users and adresses are to be put as parameters rather than hard coded.
 set -e
 set -u
@@ -156,6 +155,7 @@ for directory in "$git_path"/styles/* ; do
           git -C "$git_path" show "${commit[index]}:$directory/$line"> "$version_path/$line" || echo  ""
         done <<< $versionned_files
         # NOW that we have our files, let's see if that style is valid
+        #TODO: for each layer where there is a source, we should make sure the source name is the same as the id of the source. 
         version="${time[index]}_${commit[index]}"
         style="$version_path/style.json"
         style_name="$dirname/$version"
