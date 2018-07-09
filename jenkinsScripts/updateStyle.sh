@@ -160,14 +160,6 @@ for directory in "$git_path"/styles/* ; do
         version="${time[index]}_${commit[index]}"
         style="$version_path/style.json"
         style_name="$dirname/$version"
-        styledir="$verification_path/$style_name"
-        sudo -u "$user" mkdir -p "$styledir"
-        jq '.sources' "$style"  > "$styledir/sources.json"
-        jq '.[]' "$styledir/sources.json" > "$styledir/inside_sources.json"
-        jq '.url' "$styledir/inside_sources.json" > "$styledir/url.json"
-        jq '.layers' "$style" > "$styledir/layers.json"
-        jq '.[]' "$styledir/layers.json" > "$styledir/inside_layers.json"
-        jq '.source' "$styledir/inside_layers.json" > "$styledir/layer_sources.json"
         IFS=$'\n'
         sources_id=($(jq '.sources' "$style" | grep ": {" | grep -o -E '\w.+\w'))
         sources_url=($(jq '.sources' "$style" | jq '.[]' | jq '.url'))
@@ -176,7 +168,6 @@ for directory in "$git_path"/styles/* ; do
         validate=0
         for url in "${sources_url[@]}" ; do
           if [[ $validate = 0 ]] ; then
-            echo "${url%://*}  ${url#*://}"
             protocol="${url%://*}"
             protocol="${protocol:1}"
             if [[ "$protocol" = "mbtiles" ]]; then
@@ -202,8 +193,6 @@ for directory in "$git_path"/styles/* ; do
         for layer_source_id in "${layers_sources_id[@]}"; do
           if [[ $validate = 0 ]] ; then
             if [[ "${sources_id[@]}" = "${sources_id[@]#${layer_source_id}}" ]]; then
-               echo "${sources_id[@]}"
-	       echo "${layer_source_id}"
                validate=1
                (>&2 echo "layer source not corresponding to a source id : ${layer_source_id}")
             fi
@@ -227,9 +216,6 @@ for directory in "$git_path"/styles/* ; do
     fi
   done
 done
-
-
-exit
 
 # for fonts, we are going for a recursive update copy. It will be faster than a copy and only overwrites more recent files rather than copying everything.
 if [[ "${fonts_update}" = 1 ]] ; then
