@@ -44,7 +44,6 @@ To be called when new fonts are pushed, or when you push the content to a whole 
 
 function cleanup {
   rm -rf "$output_path" || :
-  rm -rf "$verification_path" || :
   userdel "$user" || :
 }
 
@@ -104,7 +103,6 @@ let git_path_length=${#git_path}
 # allow to loop on two at the same times, thanks to identic indices) to create the necessary files
 
 output_path=$(sudo -u "$user" mktemp -d)
-verification_path=$(sudo -u "$user" mktemp -d)
 
 # We make sure the efs is mounted or we mount it.
 efs_is_mounted_to_local_volume=$(grep "$efs_volume $local_volume nfs4 rw" /proc/mounts || echo "")
@@ -155,8 +153,8 @@ for directory in "$git_path"/styles/* ; do
         while read -r line ; do
           git -C "$git_path" show "${commit[index]}:$directory/$line"> "$version_path/$line" || echo  ""
         done <<< $versionned_files
-        # NOW that we have our files, let's see if that style is valid
-        #TODO: for each layer where there is a source, we should make sure the source name is the same as the id of the source. 
+
+
         version="${time[index]}_${commit[index]}"
         style="$version_path/style.json"
         style_name="$dirname/$version"
@@ -200,9 +198,9 @@ for directory in "$git_path"/styles/* ; do
         done  
         echo "$style_name validation : $validate"
         if [[ "${validate}" = 0 ]] ; then
-          echo "$style_name has all needed sources"
+          echo -e "\033[0;36m$style_name has all needed sources\033[0m"
         else
-          (>&2 echo "ERROR : $style_name is either trying to use a non present source, or has a incorrectly specified source id in its layer.")
+          (>&2 echo -e "\033[0;31mERROR : $style_name is either trying to use a non present source, or has a incorrectly specified source id in its layer.\033[0m")
           rm -rf "$version_path" || :
         fi
       else
