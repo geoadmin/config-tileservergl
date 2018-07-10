@@ -1,7 +1,6 @@
 #! /bin/bash
 #
-# A simple script that should be placed at the root of the git containing the configurations.
-# The goal is to pull the configurations, and then copy them via scp where they truly belong.
+# The goal is to pull the configurations, and then copy them via scp and/or rsync where they truly belong.
 # Since it might be in a public repository, users and adresses are to be put as parameters rather than hard coded.
 set -e
 set -u
@@ -45,7 +44,6 @@ To be called when new fonts are pushed, or when you push the content to a whole 
 
 function cleanup {
   rm -rf "$output_path" || :
-  rm -rf "$verification_path" || :
   userdel "$user" || :
 }
 
@@ -105,7 +103,6 @@ let git_path_length=${#git_path}
 # allow to loop on two at the same times, thanks to identic indices) to create the necessary files
 
 output_path=$(sudo -u "$user" mktemp -d)
-verification_path=$(sudo -u "$user" mktemp -d)
 
 # We make sure the efs is mounted or we mount it.
 efs_is_mounted_to_local_volume=$(grep "$efs_volume $local_volume nfs4 rw" /proc/mounts || echo "")
@@ -133,7 +130,8 @@ shopt -s nullglob
 for directory in "$git_path"/styles/* ; do
 # we take the commits hash and timestamps and put them into two arrays 
   IFS='  
-' read -r -a commit <<< $(git -C "$git_path" log --pretty=format:%H -- "$directory")
+' 
+  read -r -a commit <<< $(git -C "$git_path" log --pretty=format:%H -- "$directory")
   read -r -a time <<< $(git -C "$git_path" log --pretty=format:%at -- "$directory")
   dirname=${directory##*/}
 
@@ -155,63 +153,54 @@ for directory in "$git_path"/styles/* ; do
         while read -r line ; do
           git -C "$git_path" show "${commit[index]}:$directory/$line"> "$version_path/$line" || echo  ""
         done <<< $versionned_files
-        # NOW that we have our files, let's see if that style is valid
+
+
         version="${time[index]}_${commit[index]}"
         style="$version_path/style.json"
         style_name="$dirname/$version"
-        styledir="$verification_path/$style_name"
-        sudo -u "$user" mkdir -p "$styledir"
-        jq '.sources' "$style"  > "$styledir/sources.json"
-        jq '.[]' "$styledir/sources.json" > "$styledir/inside_sources.json"
-        jq '.url' "$styledir/inside_sources.json" > "$styledir/url.json"
-        jq '.layers' "$style" > "$styledir/layers.json"
-        jq '.[]' "$styledir/layers.json" > "$styledir/inside_layers.json"
-        jq '.source' "$styledir/inside_layers.json" > "$styledir/layer_sources.json"
-        # We now verify ids for urls that are mbtiles and for sources, and see if they match paths in mbtiles
-        # If there is no "/", we make it to /current for the verification
-        validationflag=1
-        
-        while read -r url || [[ -n "$url" ]] ; do
-          if [[ $validationflag = 1 ]] ; then
-            let url_length=${#url}
-            if [[ "$url" = *"mbtiles"* ]] ; then
-              id="${url:12:$url_length-14}"
-              if [[ ! -d "$tiles_path/$id" ]] && [[ ! -L "$tiles_path/$id" ]]
-                then
-                  (>&2 echo "source not found in $style_name : $id")
-                  validationflag=0
+        IFS=$'\n'
+        sources_id=($(jq '.sources' "$style" | grep ": {" | grep -o -E '\w.+\w'))
+        sources_url=($(jq '.sources' "$style" | jq '.[]' | jq '.url'))
+        layers_sources_id=($(jq '.layers' "$style" | jq '.[]' | jq '.source' | grep -v null | grep -o -E '\w.+\w'))
+
+        validate=0
+        for url in "${sources_url[@]}" ; do
+          if [[ $validate = 0 ]] ; then
+            protocol="${url%://*}"
+            protocol="${protocol:1}"
+            if [[ "$protocol" = "mbtiles" ]]; then
+              url_id="${url#*://}"
+              url_id="${url_id:1:${#url_id} - 3}"
+              if [[ ! -d "$tiles_path/$url_id" ]] && [[ ! -L "$tiles_path/$url_id" ]]; then
+                (>&2 echo "unknown mbtiles id : $url_id")
+                validate=1
               fi
-            elif [[ "$url" = *"local://tilejson/"* ]] ; then
-              file="${url:18:$url_length-19}"
-              if [[ ! -f "$tiles_path/$file" ]] ; then
-                (>&2 echo "source not found in $style_name: $source")
-                validationflag=0
+            elif [[ "$protocol" = "local" ]] ; then
+              file_id="${url#*://tilejson/}"
+              file_id=${file_id:0:${#file_id} - 1}
+              if [[ ! -f "$tiles_path/$file_id" ]]; then
+                validate=1
+                (>&2 echo "no local file $file_id")
               fi
-            elif [[ "$url" = *"http"* ]] ; then
-              validationflag=1
-            else
-              (>&2 echo "invalid source format in $style_name: $url")
-              validationflag=0
+            elif [[ ! "$protocol" = "http" ]] && [[ ! "$protocol" = "https" ]] ; then
+              validate=1
+              (>&2 echo "not a valid source type : $protocol")
             fi
           fi
-        done < "$styledir/url.json"
-        
-        while read -r source || [[ -n "$url" ]] ; do
-          if [[ $validationflag = 1 ]] && [[ ! "$source" = "null" ]] ; then
-            let source_length=${#source}
-            id="${source:1:$source_length-2}"
-            if [[ ! -d "$tiles_path/$id" ]] && [[ ! -L "$tiles_path/$id" ]] && [[ ! -f "$tiles_path/$id.json" ]] && [[ ! -f "$tiles_path/$id.geojson" ]] && [[ ! "$id" = "http"* ]] ; then
-              (>&2 echo "source not found or invalid format in $style_name : $id")
-              validationflag=2
+        done
+        for layer_source_id in "${layers_sources_id[@]}"; do
+          if [[ $validate = 0 ]] ; then
+            if [[ "${sources_id[@]}" = "${sources_id[@]#${layer_source_id}}" ]]; then
+               validate=1
+               (>&2 echo "layer source not corresponding to a source id : ${layer_source_id}")
             fi
           fi
-        done < "$styledir/layer_sources.json"
-        if [[ "${validationflag}" = 1 ]] ; then
-          echo "$style_name has all needed sources"
-        elif [[ "${validationflag}" = 2 ]] ; then
-          (>&2 echo "WARNING : $style_name is lacking some layer sources. It might not display correctly")
+        done  
+        echo "$style_name validation : $validate"
+        if [[ "${validate}" = 0 ]] ; then
+          echo -e "\033[0;36m$style_name has all needed sources\033[0m"
         else
-          (>&2 echo "ERROR : $style_name is lacking some base sources, deleting this version of the style")
+          (>&2 echo -e "\033[0;31mERROR : $style_name is either trying to use a non present source, or has a incorrectly specified source id in its layer.\033[0m")
           rm -rf "$version_path" || :
         fi
       else
@@ -225,9 +214,6 @@ for directory in "$git_path"/styles/* ; do
     fi
   done
 done
-
-
-
 
 # for fonts, we are going for a recursive update copy. It will be faster than a copy and only overwrites more recent files rather than copying everything.
 if [[ "${fonts_update}" = 1 ]] ; then
