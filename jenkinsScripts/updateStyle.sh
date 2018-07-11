@@ -237,9 +237,9 @@ for directory in "$local_volume/$destination_path"/styles/*/ ; do
     #we find the directory with the highest timestamp inside this one
     current_version=$(find "$directory" -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | sort -r | sed -n 1p)
     if [ -L "$directory"current ] ; then
-      sudo -u "$user" ln -sfn "$directory""$current_version" "$directory"current
+      sudo -u "$user" ln -srfn "$directory""$current_version" "$directory"current
     else   
-      sudo -u "$user" ln -sf "$directory""$current_version" "$directory"current
+      sudo -u "$user" ln -srf "$directory""$current_version" "$directory"current
     fi
   fi
 done
