@@ -25,3 +25,5 @@ ${SERVER} is the efs server. ${STAGING} is either dev, int or prod, depending on
 If you intend to deploy fonts, you can add the --fonts option, but be warned that it will rsync all fonts with the efs and that it is taking a lot of time.
 
 ### That's it
+
+For now, the efs is in "eu-west-1b.fs-da0ee213.efs.eu-west-1.amazonaws.com://dev/vectortiles"
