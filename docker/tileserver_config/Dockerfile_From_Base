@@ -1,0 +1,13 @@
+From swisstopo/tileserver-base-config:latest
+
+ENV ROOT="/var/local/efs-dev/vectortiles"
+ENV STYLES="styles"
+ENV TILES="mbtiles"
+ENV FONTS="fonts"
+ENV SPRITES="sprites"
+
+VOLUME /var/configuration
+COPY / /var/configuration
+WORKDIR /var/configuration
+
+ENTRYPOINT /var/configuration/config_generator.sh --root=$ROOT --styles=$STYLES --fonts=$FONTS --tiles=$TILES --sprites=$SPRITES
