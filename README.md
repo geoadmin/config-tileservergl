@@ -27,3 +27,7 @@ If you intend to deploy fonts, you can add the --fonts option, but be warned tha
 ### That's it
 
 For now, the efs is in "eu-west-1b.fs-da0ee213.efs.eu-west-1.amazonaws.com://dev/vectortiles"
+Configuration Generation for Tile Server GL
+
+docker run --rm -v /var/local/efs-dev/vectortiles/:/var/local/efs-dev/vectortiles/ {swisstopo/config-tileserver}:{tag} to build it locally. your docker compose should make it for you,
+
