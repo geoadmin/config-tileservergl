@@ -17,7 +17,6 @@ function usage {
   echo "Usage:"
   echo
   echo "-h --help"
-  echo -e "--env \t [dev|int|prod] the environment used for the config. [default: dev]"
   echo -e "--root \t define the base path tileserver will follow to find resources in /var/local/efs-\$env/ [default: vectortiles]."
   echo -e "--root must be set after --env. "
   echo -e "--fonts \t the path to the fonts from the root. [default: fonts]"
@@ -92,8 +91,9 @@ for file in $path_to_data/*/*/tiles.mbtiles
 do
   
   let length_of_file=${#file}-$length_of_path
+  title="${file//\//_}"
   data_json+="\
-    \"${file:$length_of_path:$length_of_file-14}\":{\n\
+    \"${title:$length_of_path:$length_of_file-14}\":{\n\
       \"mbtiles\":\"${file:$length_of_path:$length_of_file}\"\n\
     },"
 
@@ -175,7 +175,8 @@ IFS=','
 bounds="[${boundaries[*]// /,}]"
 
   let length_of_file=${#file}-$length_of_path
-      styles_json+="    \"${file:$length_of_path:$length_of_file-11}\":{\n\
+  title="${file//\//_}"
+      styles_json+="    \"${title:$length_of_path:$length_of_file-11}\":{\n\
       \"style\":\"${file:$length_of_path:$length_of_file}\",\n\
       \"serve_rendered\":false,\n\
       \"serve_data\":true,\n\
@@ -199,7 +200,14 @@ done
 styles_json=${styles_json:0:${#styles_json}-1}
 styles_json+="\n  }\n"
 
+echo""
+echo "$options_json"
+echo ""
 echo "$styles_json"
+echo ""
+echo "$data_json"
+echo ""
+
 echo -e "{\n$options_json$data_json$styles_json\n}" > app-config.json
 
 duration=$SECONDS
