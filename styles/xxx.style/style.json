@@ -14479,11 +14479,33 @@
       ],
       "id": "LABELS Gipfel-copy",
       "layout": {
-        "icon-image": "triangle-11",
+        "icon-image": {
+          "stops": [
+            [
+              6,
+              "triangle-11"
+            ],
+            [
+              10,
+              "triangle-stroked-11"
+            ]
+          ]
+        },
         "icon-padding": 2,
         "symbol-spacing": 250,
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": {
+          "stops": [
+            [
+              6,
+              ""
+            ],
+            [
+              10,
+              "{name}"
+            ]
+          ]
+        },
         "text-font": [
           "Roboto Regular",
           "Arial"
@@ -14514,13 +14536,24 @@
         "visibility": "visible"
       },
       "maxzoom": 24,
-      "minzoom": 5,
+      "minzoom": 0,
       "paint": {
         "icon-halo-blur": 0.5,
         "icon-halo-color": "rgba(255, 255, 255, 1)",
         "icon-halo-width": 2,
         "icon-opacity": 0.9,
-        "text-color": "hsl(26, 25%, 32%)",
+        "text-color": {
+          "stops": [
+            [
+              6,
+              "hsl(26, 25%, 32%)"
+            ],
+            [
+              9,
+              "rgba(27, 39, 132, 1)"
+            ]
+          ]
+        },
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 2
