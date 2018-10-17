@@ -14,4 +14,4 @@ RUN apk add --update bc jq sqlite bash
 
 RUN ls /var/configuration/
 
-ENTRYPOINT ["bash","/var/configuration/config_generator.sh", "--root=/var/local/efs-dev/vectortiles", "--styles=styles", "--fonts=fonts", "--tiles=mbtiles", "--sprites=sprites"]
+ENTRYPOINT /var/configuration/config_generator.sh --root=$ROOT --styles=$STYLES --fonts=$FONTS --tiles=$TILES --sprites=$SPRITES
