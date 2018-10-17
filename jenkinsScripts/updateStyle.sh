@@ -171,7 +171,9 @@ for directory in "$git_path"/styles/* ; do
             if [[ "$protocol" = "mbtiles" ]]; then
               url_id="${url#*://}"
               url_id="${url_id:1:${#url_id} - 3}"
-              if [[ ! -d "$tiles_path/$url_id" ]] && [[ ! -L "$tiles_path/$url_id" ]]; then
+              src_id="${url_id%_*}"
+              src_v="${url_id##*_}"
+              if [[ ! -d "$tiles_path/$src_id/$src_v" ]] && [[ ! -L "$tiles_path/$src_id/$src_v" ]]; then
                 (>&2 echo "unknown mbtiles id : $url_id")
                 validate=1
               fi
@@ -221,7 +223,7 @@ if [[ "${fonts_update}" = 1 ]] ; then
   sudo -u "$user" cp -r -u "$git_path/fonts" "$output_path/fonts"
 fi
 sudo -u "$user" mkdir -p "$local_volume/$destination_path/sprites"
-sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume/$destination_path/$mbtiles_location/"
+sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume"/"$destination_path"json/
 #rsync between the destination folder in the EFS and the local styles, font and sprites directory
 echo "Starting to rsync"
 
