@@ -223,6 +223,7 @@ if [[ "${fonts_update}" = 1 ]] ; then
   sudo -u "$user" cp -r -u "$git_path/fonts" "$output_path/fonts"
 fi
 sudo -u "$user" mkdir -p "$local_volume/$destination_path/sprites"
+sudo -u "$user" mkdir -p "$local_volume"/"$destination_path"json/
 sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume"/"$destination_path"json/
 #rsync between the destination folder in the EFS and the local styles, font and sprites directory
 echo "Starting to rsync"
