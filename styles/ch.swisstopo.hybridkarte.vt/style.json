@@ -1,0 +1,7060 @@
+{
+  "version": 8,
+  "name": "ch.swisstopo.hybridkarte.vt",
+  "metadata": {
+    "mapbox:autocomposite": true,
+    "mapbox:type": "template",
+    "maputnik:renderer": "mbgljs"
+  },
+  "center": [
+    9.067074348752385,
+    46.1362891921805
+  ],
+  "zoom": 6.419073705231773,
+  "bearing": 0,
+  "pitch": 5.5,
+  "light": {
+    "anchor": "map",
+    "intensity": 0
+  },
+  "sources": {
+    "ch.swissnames3d": {
+      "url": "mbtiles://{ch.swisstopo.swissnames3d_1539076162}",
+      "type": "vector"
+    },
+    "ch.swisstopo.amtliches-strassenverzeichnis_validiert": {
+      "url": "mbtiles://{ch.swisstopo.amtliches-strassenverzeichnis_validiert_1539075924}",
+      "type": "vector"
+    },
+    "ch.bav.haltestellen-oev": {
+      "url": "mbtiles://{ch.bav.haltestellen-oev_1539076848}",
+      "type": "vector"
+    },
+    "ch.swisstopo.swissimage": {
+      "url": "http://tileserver.dev.bgdi.ch/json/swissimage.json",
+      "type": "raster"
+    }
+  },
+  "sprite": "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
+  "glyphs": "https://tileserver.dev.bgdi.ch/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "swissimage_",
+      "type": "raster",
+      "source": "ch.swisstopo.swissimage",
+      "maxzoom": 24,
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "raster-opacity": 1,
+        "raster-hue-rotate": 0,
+        "raster-brightness-min": 0,
+        "raster-brightness-max": 1,
+        "raster-saturation": 0,
+        "raster-contrast": 0,
+        "raster-fade-duration": 100
+      }
+    },
+    {
+      "id": "barrage_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "dam",
+          "dam_wall",
+          "weir"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-barrage"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadtraffic_custom-office",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-roadtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "custom_office"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 0.5,
+        "icon-image": "zoll-40",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium-Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              20,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": {
+          "stops": [
+            [
+              0,
+              1
+            ],
+            [
+              22,
+              1
+            ]
+          ]
+        },
+        "text-opacity": {
+          "stops": [
+            [
+              0,
+              1
+            ],
+            [
+              22,
+              1
+            ]
+          ]
+        },
+        "text-color": "rgb(255, 153, 255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadtraffic_carloading-station",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-roadtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "carloading_station"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              13,
+              0.7
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": "autoverlad-40",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              20,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": {
+          "stops": [
+            [
+              0,
+              1
+            ],
+            [
+              22,
+              1
+            ]
+          ]
+        },
+        "text-opacity": {
+          "stops": [
+            [
+              0,
+              1
+            ],
+            [
+              22,
+              1
+            ]
+          ]
+        },
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "aerialway_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "gondola_lift",
+          "aerial_tramway",
+          "chairlift",
+          "surface_lift",
+          "material_ropeway"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-aerialway"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              15,
+              15
+            ],
+            [
+              18,
+              18
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "center",
+        "text-max-angle": 360,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "sportsfacility_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "bob_run",
+          "toboggan_run",
+          "ski_jump"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-sportsfacility"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "railwaybuilding_line",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "bridge",
+          "gallery",
+          "tunnel"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-railwaybuilding-ln"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              15,
+              15
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "railwaybuilding_point",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 15,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "bridge",
+          "gallery",
+          "tunnel"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-railwaybuilding-pt"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              15,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "ferryservice_line",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "car_ferry",
+          "passenger_ferry"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-ferryservice-ln"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              15,
+              15
+            ],
+            [
+              18,
+              18
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "center",
+        "text-max-angle": 360,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "ferryservice_point",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 15,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "car_ferry",
+          "passenger_ferry"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-ferryservice-pt"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              15,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 360,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadbuilding_line",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "bridge",
+          "gallery",
+          "tunnel",
+          "barrage"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-roadbuilding-ln"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              15,
+              15
+            ],
+            [
+              18,
+              18
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "center",
+        "text-max-angle": 360,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadbuilding_point",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 15,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "bridge",
+          "gallery",
+          "tunnel",
+          "barrage"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-roadbuilding-pt"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              15,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 360,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadtraffic_rest-area",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-roadtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "rest_area"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              12
+            ],
+            [
+              22,
+              21
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.06,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadtraffic_parking",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-roadtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "parking"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              12
+            ],
+            [
+              22,
+              20
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadtraffic_interchange",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-roadtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "interchange"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              14,
+              0.6
+            ],
+            [
+              22,
+              0.9
+            ]
+          ]
+        },
+        "icon-image": "verzweigung",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              12
+            ],
+            [
+              22,
+              20
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.95,
+        "text-opacity": 0.95,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(4, 118, 70)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "roadtraffic_drive",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-roadtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "drive"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              14,
+              0.6
+            ],
+            [
+              22,
+              0.9
+            ]
+          ]
+        },
+        "icon-image": "ausfahrt",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              12
+            ],
+            [
+              22,
+              20
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.95,
+        "text-opacity": 0.95,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(4, 118, 70)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "streetnames_street",
+      "type": "symbol",
+      "source": "ch.swisstopo.amtliches-strassenverzeichnis_validiert",
+      "source-layer": "ch.swisstopo.amtliches-strassenverzeichnis_validiert-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "street",
+          "square",
+          "named_area"
+        ],
+        [
+          "==",
+          "layerid",
+          "streetnames-axis"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": "{name}",
+        "text-font": [
+          "Arial"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              13
+            ],
+            [
+              20,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.02,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 30,
+        "text-padding": 2,
+        "text-keep-upright": true,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-allow-overlap": false,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "map",
+        "icon-opacity": 1,
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "streetnames_sqaure",
+      "type": "symbol",
+      "source": "ch.swisstopo.amtliches-strassenverzeichnis_validiert",
+      "source-layer": "ch.swisstopo.amtliches-strassenverzeichnis_validiert-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "street",
+          "square",
+          "named_area"
+        ],
+        [
+          "==",
+          "layerid",
+          "streetnames-area"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Arial"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              13
+            ],
+            [
+              20,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.02,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 30,
+        "text-padding": 2,
+        "text-keep-upright": true,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-allow-overlap": false,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_bus",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "bus"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "bergbahn-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_ferry",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "ferry"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_arialway",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "arialway"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_funicular",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "funicular"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_cog-railway",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "cog_railway"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_interchange",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "interchange"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_tram",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "tram"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "faehre-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_subway",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "subway"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              15,
+              "halt-40"
+            ],
+            [
+              17,
+              "bus-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Regular"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              12
+            ],
+            [
+              20,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 1,
+        "text-opacity": 1,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "stops_railway",
+      "type": "symbol",
+      "source": "ch.bav.haltestellen-oev",
+      "source-layer": "ch.bav.haltestellen-oev-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "publictransport-stops"
+        ],
+        [
+          "==",
+          "class",
+          "railway"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": {
+          "stops": [
+            [
+              16,
+              0.2
+            ],
+            [
+              17,
+              0.55
+            ],
+            [
+              18,
+              0.8
+            ]
+          ]
+        },
+        "icon-image": {
+          "stops": [
+            [
+              0,
+              "halt-40"
+            ],
+            [
+              17,
+              "bahnhof-40"
+            ]
+          ]
+        },
+        "icon-padding": 20,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              13
+            ],
+            [
+              20,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.01,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          1.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": {
+          "stops": [
+            [
+              0,
+              1
+            ],
+            [
+              22,
+              1
+            ]
+          ]
+        },
+        "text-opacity": {
+          "stops": [
+            [
+              0,
+              1
+            ],
+            [
+              22,
+              1
+            ]
+          ]
+        },
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(32, 62, 151)",
+        "text-halo-width": 1,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "airtraffic_heliport",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-airtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "heliport"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "singlefeature_blue",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "water_well",
+          "spring",
+          "waterfall"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-singlefeatures"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(135, 206, 250)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "singlefeature_black",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "lookout",
+          "shrine_cross",
+          "memorial",
+          "cave_grotto",
+          "boundary_stone"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-singlefeatures"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "morphology_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "erratic_boulder",
+          "boulder"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-morphology"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "building_paricular-bulding",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-buildings"
+        ],
+        [
+          "==",
+          "class",
+          "sacred_building"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              12,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "bulding_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "lookout_tower",
+          "remote_inn",
+          "rifle_ranke",
+          "wilderness_hut",
+          "gym",
+          "stadium",
+          "beacon",
+          "observatory",
+          "bulding",
+          "chapel",
+          "historic_building"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-buildings"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "landuse_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "sewerage_treatment_site",
+          "waste_disposal_site",
+          "cemetery",
+          "historic_site",
+          "waste_incineration_site",
+          "cloister_site",
+          "power_plant_site",
+          "penitentiary_site",
+          "fair_site",
+          "park",
+          "school_site",
+          "hospivalley_site",
+          "military_training_zone",
+          "substation_site"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-landuse"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "leisure_swinning-pool-site",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-leisure"
+        ],
+        [
+          "==",
+          "class",
+          "swimming_pool_site"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(200, 229, 143)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "leisure_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "camp_site",
+          "leisure_facility_site",
+          "golf_course_site",
+          "racecourse_site",
+          "sports_sites",
+          "allotment_site",
+          "zoo"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-leisure"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0,
+        "text-justify": "left",
+        "text-anchor": "bottom-left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(200, 229, 143)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "fieldname_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "field_name",
+          "locality_name"
+        ],
+        [
+          "==",
+          "layerid",
+          "labels-fieldname"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              13,
+              10
+            ],
+            [
+              14,
+              14
+            ],
+            [
+              18,
+              20
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": {
+          "stops": [
+            [
+              14,
+              0.2
+            ],
+            [
+              18,
+              2
+            ]
+          ]
+        },
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 35,
+        "text-transform": "none",
+        "text-offset": [
+          1,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_less-20",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "less_20"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              9.5
+            ],
+            [
+              22,
+              13
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_25-49",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "25-49"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              11
+            ],
+            [
+              22,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_50-99",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "50-99"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              13
+            ],
+            [
+              22,
+              17
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_100-999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "100-999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              15
+            ],
+            [
+              22,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_1000-1999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "1000-1999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              15
+            ],
+            [
+              15,
+              17
+            ],
+            [
+              22,
+              21
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_2000-9999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "2000-9999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              12,
+              14
+            ],
+            [
+              15,
+              19
+            ],
+            [
+              20,
+              23
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_10000-49999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "10000-49999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              11,
+              12.5
+            ],
+            [
+              15,
+              19.5
+            ],
+            [
+              18,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_50000-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "50000-100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              9,
+              11
+            ],
+            [
+              15,
+              20
+            ],
+            [
+              18,
+              27
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quartersection_more-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quartersection"
+        ],
+        [
+          "==",
+          "class",
+          "quartersection"
+        ],
+        [
+          "==",
+          "subclass",
+          "more_100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Condensed Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              11.5
+            ],
+            [
+              15,
+              20.5
+            ],
+            [
+              16,
+              29
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_less-20",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "less_20"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              11
+            ],
+            [
+              22,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_25-49",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "25-49"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              13
+            ],
+            [
+              22,
+              17
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_50-99",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "50-99"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              15
+            ],
+            [
+              22,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_100-999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "100-999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              15
+            ],
+            [
+              15,
+              17
+            ],
+            [
+              22,
+              21
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_1000-1999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "1000-1999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              12,
+              14
+            ],
+            [
+              15,
+              19
+            ],
+            [
+              20,
+              23
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_2000-9999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "2000-9999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              11,
+              12.5
+            ],
+            [
+              15,
+              19.5
+            ],
+            [
+              18,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_10000-49999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "10000-49999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              9,
+              11
+            ],
+            [
+              15,
+              20
+            ],
+            [
+              18,
+              27
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_50000-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "50000-100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              11.5
+            ],
+            [
+              15,
+              20.5
+            ],
+            [
+              16,
+              29
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_quarter_more-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-quarter"
+        ],
+        [
+          "==",
+          "class",
+          "quarter"
+        ],
+        [
+          "==",
+          "subclass",
+          "more_100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              7,
+              12
+            ],
+            [
+              14,
+              21
+            ],
+            [
+              15,
+              31
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_less-20",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "less_20"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              13
+            ],
+            [
+              22,
+              17
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_25-49",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "25-49"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              15
+            ],
+            [
+              22,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_50-99",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "50-99"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              15
+            ],
+            [
+              15,
+              17
+            ],
+            [
+              22,
+              21
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_100-999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "100-999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              12,
+              14
+            ],
+            [
+              15,
+              19
+            ],
+            [
+              20,
+              23
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_1000-1999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "1000-1999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              11,
+              12.5
+            ],
+            [
+              15,
+              19.5
+            ],
+            [
+              18,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_2000-9999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "2000-9999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              9,
+              11
+            ],
+            [
+              15,
+              20
+            ],
+            [
+              18,
+              27
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_10000-49999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "10000-49999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              11.5
+            ],
+            [
+              15,
+              20.5
+            ],
+            [
+              16,
+              29
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_50000-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "50000-100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              7,
+              12
+            ],
+            [
+              14,
+              21
+            ],
+            [
+              15,
+              31
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_district_more-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-district"
+        ],
+        [
+          "==",
+          "class",
+          "district"
+        ],
+        [
+          "==",
+          "subclass",
+          "more_100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              6,
+              11
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              15,
+              33
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "airtraffic_regional-aerodrome",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-airtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "regional_aerodrome"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "flugfeld",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": 21,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0.9,
+          0.175
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.9,
+        "text-opacity": 0.9,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "airtraffic_airfield",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-airtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "airfield"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "flugplatz",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": 18,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          1.1,
+          0.15
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.9,
+        "text-opacity": 0.9,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "airtraffic_airport",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-airtraffic"
+        ],
+        [
+          "==",
+          "class",
+          "airport"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "flughafen",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": 23,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0.9,
+          0.2
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.9,
+        "text-opacity": 0.9,
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_pass-crossing",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "pass_crossing"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 13,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_mountain-pass",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "mountain_pass"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              13
+            ],
+            [
+              16,
+              15
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_hill",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "hill"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "dot-9",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": 12,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0.3
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.5,
+        "text-opacity": 0.5,
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_main-hill",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "main_hill"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "dot-9",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": 13,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0.3
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.5,
+        "text-opacity": 0.5,
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_belay",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "belay"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "dot-9",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              12
+            ],
+            [
+              16,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0.3
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.5,
+        "text-opacity": 0.5,
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "peak"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "dot-9",
+        "icon-padding": 10,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              13
+            ],
+            [
+              16,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0.3
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.5,
+        "text-opacity": 0.5,
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_valley",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "valley"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              7,
+              12
+            ],
+            [
+              14,
+              17
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.5,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_valley",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "valley"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 17,
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_glacier",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "glacier"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 19,
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(179, 231, 234)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_glacier",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "glacier"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              13
+            ],
+            [
+              14,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(179, 231, 234)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_main-peak",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "main_peak"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "dot-9",
+        "icon-padding": 2,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              13
+            ],
+            [
+              16,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0.3
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.5,
+        "text-opacity": 0.5,
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "peak_alpine-peak",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-peaks"
+        ],
+        [
+          "==",
+          "class",
+          "alpine_peak"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "icon-size": 1,
+        "icon-image": "dot-9",
+        "icon-padding": 2,
+        "text-field": {
+          "stops": [
+            [
+              0,
+              "{name}"
+            ],
+            [
+              11,
+              "{name}({height})"
+            ]
+          ]
+        },
+        "text-font": [
+          "Roboto Medium"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              13
+            ],
+            [
+              14,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "top",
+        "text-max-angle": 45,
+        "text-padding": 15,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0.3
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-opacity": 0.5,
+        "text-opacity": 0.5,
+        "text-color": "rgb(245, 245, 220)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_lake-part",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "lake_part"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              14
+            ],
+            [
+              20,
+              30
+            ]
+          ]
+        },
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(135, 206, 250)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_lake-part",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "lake_part"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": 14,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(135, 206, 250)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_rift",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "rift"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              12
+            ],
+            [
+              16,
+              14
+            ]
+          ]
+        },
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_rift",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "rift"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 12,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_hill-range",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "hill_range"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 13,
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_hill-range",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "hill_range"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 13,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_ridge",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "ridge"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              13
+            ],
+            [
+              16,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_ridge",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "ridge"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 13,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_main-valley",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "main_valley"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              13
+            ],
+            [
+              16,
+              16
+            ]
+          ]
+        },
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_main-valley",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "main_valley"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 13,
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_line_massif",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-ln"
+        ],
+        [
+          "==",
+          "class",
+          "massif"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": 12,
+        "text-max-width": 50,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 2,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "terrain_point_massif",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-terrain-pt"
+        ],
+        [
+          "==",
+          "class",
+          "massif"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              13
+            ],
+            [
+              14,
+              18
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 20,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "hydrology_watercourse",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-hydrology-ln"
+        ],
+        [
+          "==",
+          "class",
+          "watercourse"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 700,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              6,
+              14
+            ],
+            [
+              20,
+              30
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(135, 206, 250)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_less-20",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "less_20"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              16,
+              15
+            ],
+            [
+              22,
+              19
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_25-49",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "25-49"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              14,
+              15
+            ],
+            [
+              15,
+              17
+            ],
+            [
+              22,
+              21
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_50-99",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "50-99"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              12,
+              13
+            ],
+            [
+              15,
+              19
+            ],
+            [
+              20,
+              23
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_100-999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "100-999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              11,
+              12
+            ],
+            [
+              15,
+              19.5
+            ],
+            [
+              18,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_1000-1999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "1000-1999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              9,
+              11
+            ],
+            [
+              15,
+              20
+            ],
+            [
+              18,
+              27
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_2000-9999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "2000-9999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              12.5
+            ],
+            [
+              15,
+              20.5
+            ],
+            [
+              16,
+              29
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 12,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "hydrology_island_line",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-hydrology-ln"
+        ],
+        [
+          "==",
+          "class",
+          "island"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              13,
+              14
+            ],
+            [
+              20,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "hydrology_island_point",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-hydrology-pt"
+        ],
+        [
+          "==",
+          "class",
+          "island"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              13,
+              14
+            ],
+            [
+              20,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "hydrology_lake_line",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-hydrology-ln"
+        ],
+        [
+          "==",
+          "class",
+          "lake"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 250,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              6,
+              14
+            ],
+            [
+              20,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(135, 206, 250)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "hydrology_lake_point",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-hydrology-pt"
+        ],
+        [
+          "==",
+          "class",
+          "lake"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Medium Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              6,
+              14
+            ],
+            [
+              20,
+              25
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(135, 206, 250)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 0.5,
+        "text-halo-blur": 2,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_10000-49999",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "10000-49999"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              7,
+              12
+            ],
+            [
+              14,
+              21
+            ],
+            [
+              15,
+              31
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_50000-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "50000-100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              7,
+              14
+            ],
+            [
+              14,
+              22
+            ],
+            [
+              15,
+              33
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 15,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "settlement_locality_more-100000",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-locality"
+        ],
+        [
+          "==",
+          "class",
+          "locality"
+        ],
+        [
+          "==",
+          "subclass",
+          "more_100000"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Bold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              6,
+              14
+            ],
+            [
+              14,
+              25
+            ],
+            [
+              15,
+              35
+            ]
+          ]
+        },
+        "text-max-width": 10,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.05,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 15,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "zone_region",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-zone"
+        ],
+        [
+          "==",
+          "class",
+          "region"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 2500,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              12,
+              18
+            ],
+            [
+              20,
+              28
+            ]
+          ]
+        },
+        "text-max-width": 100,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.4,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2.5,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "zone_landscape",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-zone"
+        ],
+        [
+          "==",
+          "class",
+          "landscape"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 2500,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              8,
+              15
+            ],
+            [
+              12,
+              30
+            ]
+          ]
+        },
+        "text-max-width": 100,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.4,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2.5,
+        "text-translate-anchor": "viewport"
+      }
+    },
+    {
+      "id": "zone_greater-region",
+      "type": "symbol",
+      "source": "ch.swissnames3d",
+      "source-layer": "ch.swissnames3d-layer",
+      "maxzoom": 9,
+      "filter": [
+        "all",
+        [
+          "==",
+          "layerid",
+          "labels-zone"
+        ],
+        [
+          "==",
+          "class",
+          "greater_region"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 2500,
+        "symbol-avoid-edges": true,
+        "text-field": "{name}",
+        "text-font": [
+          "Roboto Italic"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              6,
+              15
+            ],
+            [
+              8,
+              30
+            ]
+          ]
+        },
+        "text-max-width": 100,
+        "text-line-height": 1.2,
+        "text-letter-spacing": 0.4,
+        "text-justify": "center",
+        "text-anchor": "center",
+        "text-max-angle": 45,
+        "text-padding": 10,
+        "text-transform": "none",
+        "text-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgb(255,255,255)",
+        "text-halo-color": "rgb(0,0,0)",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 2.5,
+        "text-translate-anchor": "viewport"
+      }
+    }
+  ],
+  "id": "ch.swisstopo.hybridkarte.vt",
+  "owner": "swisstopo",
+  "visibility": "public",
+  "draft": false
+}
