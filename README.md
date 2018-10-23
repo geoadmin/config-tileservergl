@@ -1,6 +1,6 @@
 # config-tileserver-gl
 
-### Adding new styles to the configuration
+## Adding new styles to the configuration
 
 1) Create a branch and switch to it. A good branch naming convention would be  ${Collaborator_id}\_${subject}\_${stylename}
   For example : ltkum_new_style_hikingtrails
@@ -11,7 +11,7 @@
 
 Note: Work was done to allow maputnik to save directly styles to this repository. Once I have more informations, I'll update this repository help again.
 
-### Updating a new style to the configuration
+## Updating a new style to the configuration
 
 ### Deploy the styles to the efs (valid until we manage to make a correct Jenkinsfile)
 
@@ -36,3 +36,13 @@ make push-development|integration|production to push them to docker hub
 ```
 docker run --rm -v [PATH_TO_TILES]:[PATH_TO_TILES] [IMAGE]:[TAG] to run it locally. In the end, it should be called by the docker compose.
 ```
+
+## Addding a new dataset to the efs
+
+Sometimes, you will need to add a new map box tiles data source to the efs. You will find here the documentation allowing you to proceed.
+
+### obtain your geojson
+
+You're supposed to have a geojson as your basic data. This data should be in web mercator projection(EPSG:3857) For our example, we will call this data example.geojson
+
+
