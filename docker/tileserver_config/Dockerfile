@@ -1,11 +1,5 @@
 From alpine:3.6
 
-ENV ROOT="/var/local/efs-dev/vectortiles"
-ENV STYLES="styles"
-ENV TILES="mbtiles"
-ENV FONTS="fonts"
-ENV SPRITES="sprites"
-
 VOLUME /var/configuration
 COPY / /var/configuration
 WORKDIR /var/configuration
