@@ -32,12 +32,12 @@
          "type" : "vector"
       },
       "ch.swisstopo.swissalti3d-reliefschattierung" : {
-         "url" : "http://tileserver.dev.bgdi.ch/json/relief.json",
+         "url" : "https://vectortiles.geo.admin.ch/json/relief.json",
          "type" : "raster"
       }
    },
    "sprite" : "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
-   "glyphs" : "https://tileserver.dev.bgdi.ch/fonts/{fontstack}/{range}.pbf",
+   "glyphs" : "https://vectortiles.geo.admin.ch/fonts/{fontstack}/{range}.pbf",
    "layers" : [
       {
          "id" : "background_",

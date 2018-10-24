@@ -29,7 +29,7 @@
       }
    },
    "sprite" : "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
-   "glyphs" : "https://tileserver.dev.bgdi.ch/fonts/{fontstack}/{range}.pbf",
+   "glyphs" : "https://vectortiles.geo.admin.ch/fonts/{fontstack}/{range}.pbf",
    "layers" : [
       {
          "id" : "route_local",
