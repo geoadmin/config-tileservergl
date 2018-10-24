@@ -91,9 +91,8 @@ for file in $path_to_data/*/*/tiles.mbtiles
 do
   
   let length_of_file=${#file}-$length_of_path
-  title="${file//\//_}"
   data_json+="\
-    \"${title:$length_of_path:$length_of_file-14}\":{\n\
+    \"${file:$length_of_path:$length_of_file-14}\":{\n\
       \"mbtiles\":\"${file:$length_of_path:$length_of_file}\"\n\
     },"
 
@@ -175,8 +174,7 @@ IFS=','
 bounds="[${boundaries[*]// /,}]"
 
   let length_of_file=${#file}-$length_of_path
-  title="${file//\//_}"
-      styles_json+="    \"${title:$length_of_path:$length_of_file-11}\":{\n\
+      styles_json+="    \"${file:$length_of_path:$length_of_file-11}\":{\n\
       \"style\":\"${file:$length_of_path:$length_of_file}\",\n\
       \"serve_rendered\":false,\n\
       \"serve_data\":true,\n\
