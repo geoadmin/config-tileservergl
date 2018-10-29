@@ -9,11 +9,16 @@ set -u
 git_path="."
 destination_path=""
 efs_volume=""
+efs_server=""
+efs_host=""
+environment="dev"
 local_volume=""
 mbtiles_location="mbtiles"
 fonts_update=0
 group="mockup_geodata"
 user="mockup_geodata"
+target_hostname="tileserver.dev.bgdi.ch"
+possible_hostname=("tileserver.dev.bgdi.ch" "tileserver.int.bgdi.ch" "vectortiles.geo.admin.ch")
 
 if [ "$(whoami)" != "root" ]; then
   (>&2 echo "Script must be run as root")
@@ -32,14 +37,16 @@ function usage {
   echo -e "--mbtiles \t The directory containing the sources files used in scripts"
   echo -e "--git \t The local git repository where your styles are stored. [default: .]"
   echo -e "--destination \t The path  where our configuration is supposed to end up inside the efs volume.[default:'']"
-  echo -e "--efs \t the efs volume you wish to mount in read-write. [default: '']" 
+  echo -e "--efs \t the efs volume you wish to mount in read-write. [default: '']"
+  echo -e "--env \t the environment in which you're deploying [dev, int, prod]. [default: 'dev']" 
   echo -e "--mnt \t the local repository used as a mount point for the efs. [default: '']"
+  echo -e "\t we suggest including the environment in the local volume name too."
   echo -e "--fonts \t as the fonts syncing is a time consuming operation, it is \
 disabled by default. the --fonts flag will tell the script upload the fonts, which \
 will make the script run for a much longer time and you will cry when it happens. \
 To be called when new fonts are pushed, or when you push the content to a whole new directory"
-  echo -e "example usage \t: updateStyle.sh --destination=\"temp\" --efs=\"[SERVER NAME]://dev/vectortiles\" --mnt=\
-         \"/var/local/vectortiles\""
+  echo -e "example usage \t: updateStyle.sh --destination=\"temp\" --efs=\"[SERVER NAME]\" --mnt=\
+         \"/var/local/vectortiles\" --env=\"int\""
 }
 
 function cleanup {
@@ -67,8 +74,17 @@ if [ $# -gt 0 ]; then
             destination_path=${VALUE}
             ;;
         --efs)
-            efs_volume=${VALUE}
+	    efs_host=${VALUE}
             ;;
+	--env)
+	    environment=${VALUE}
+	    if [ ${VALUE} = 'int' ] ; then
+		target_hostname="tileserver.int.bgdi.ch"
+	    elif [ ${VALUE} = 'prod' ] ; then
+		target_hostname="vectortiles.geo.admin.ch"
+	    fi
+		echo ${target_hostname}
+	    ;;
         --mnt)
             local_volume=${VALUE}
             ;;
@@ -105,6 +121,11 @@ let git_path_length=${#git_path}
 output_path=$(sudo -u "$user" mktemp -d)
 
 # We make sure the efs is mounted or we mount it.
+
+efs_volume="${efs_host}://${environment}/vectortiles"
+
+
+
 efs_is_mounted_to_local_volume=$(grep "$efs_volume $local_volume nfs4 rw" /proc/mounts || echo "")
 
 efs_is_mounted=$(grep "$efs_volume" /proc/mounts | grep nfs4 | grep rw || echo "")
@@ -225,6 +246,12 @@ fi
 sudo -u "$user" mkdir -p "$local_volume/$destination_path/sprites"
 sudo -u "$user" mkdir -p "$local_volume"/"$destination_path"json/
 sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume"/"$destination_path"json/
+
+#we replace the hostname by the appropriate one depending on the environment.
+for target in ${possible_hostname[*]}; do
+  find "$output_path/" -type f -exec sed -i "s/${target}/${target_hostname}/g" {} \;
+done
+
 #rsync between the destination folder in the EFS and the local styles, font and sprites directory
 echo "Starting to rsync"
 
