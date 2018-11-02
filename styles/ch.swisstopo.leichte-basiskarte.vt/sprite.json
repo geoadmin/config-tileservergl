@@ -1,0 +1,51 @@
+{
+  "airport": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 0,
+    "y": 0
+  },
+  "circle_black": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 40,
+    "y": 0
+  },
+  "circle_stroke": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 80,
+    "y": 0
+  },
+  "peak": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 120,
+    "y": 0
+  },
+  "station_bus": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 0,
+    "y": 40
+  },
+  "station_railway": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 40,
+    "y": 40
+  },
+  "station_tram": {
+    "height": 40,
+    "pixelRatio": 1,
+    "width": 40,
+    "x": 80,
+    "y": 40
+  }
+}
