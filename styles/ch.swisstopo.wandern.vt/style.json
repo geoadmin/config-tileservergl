@@ -1,0 +1,680 @@
+{
+   "version" : 8,
+   "name" : "ch.swisstopo.wandern.vt",
+   "metadata" : {
+      "mapbox:autocomposite" : true,
+      "mapbox:type" : "template",
+      "maputnik:renderer" : "mbgljs"
+   },
+   "center" : [ 9.067074348752385, 46.1362891921805 ],
+   "zoom" : 6.419073705231773,
+   "bearing" : 0,
+   "pitch" : 5.5,
+   "light" : {
+      "anchor" : "map",
+      "intensity" : 0
+   },
+   "sources" : {
+      "ch.swisstopo.swisstlm3d-wanderwege" : {
+         "url" : "mbtiles://{ch.swisstopo.swisstlm3d-wanderwege_1539076592}",
+         "type" : "vector"
+      },
+      "ch.astra.wanderland" : {
+         "url" : "mbtiles://{ch.astra.wanderland_1539077150}",
+         "type" : "vector"
+      },
+      "ch.bak.bundesinventar-schuetzenswerte-ortsbilder" : {
+         "url" : "mbtiles://{ch.bak.bundesinventar-schuetzenswerte-ortsbilder_1539077120}",
+         "type" : "vector"
+      }
+   },
+   "sprite" : "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
+   "glyphs" : "local://fonts/{fontstack}/{range}.pbf",
+   "layers" : [
+      {
+         "id" : "route_local",
+         "type" : "line",
+         "source" : "ch.astra.wanderland",
+         "source-layer" : "ch.astra.wanderland-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "schweizmobil-hiking_routes" ],
+            [ "==", "class", "local" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 0.5,
+            "line-color" : "rgb(105, 190, 40)",
+            "line-width" : {
+               "stops" : [
+                  [ 8, 2 ],
+                  [ 12.5, 5 ],
+                  [ 14, 10 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "route_regional",
+         "type" : "line",
+         "source" : "ch.astra.wanderland",
+         "source-layer" : "ch.astra.wanderland-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "schweizmobil-hiking_routes" ],
+            [ "==", "class", "regional" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : {
+               "stops" : [
+                  [ 7, 1 ],
+                  [ 10, 0.5 ]
+               ]
+            },
+            "line-color" : "rgb(105, 190, 40)",
+            "line-width" : {
+               "stops" : [
+                  [ 8, 2 ],
+                  [ 12.5, 5 ],
+                  [ 14, 10 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "route_national",
+         "type" : "line",
+         "source" : "ch.astra.wanderland",
+         "source-layer" : "ch.astra.wanderland-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "schweizmobil-hiking_routes" ],
+            [ "==", "class", "national" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : {
+               "stops" : [
+                  [ 6, 1 ],
+                  [ 10, 0.5 ]
+               ]
+            },
+            "line-color" : "rgb(105, 190, 40)",
+            "line-width" : {
+               "stops" : [
+                  [ 6, 2 ],
+                  [ 8, 2 ],
+                  [ 12.5, 5 ],
+                  [ 14, 10 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "viaferrata_line",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-viaferrata" ],
+            [ "==", "class", "via_ferrata_ln" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(0, 124, 176)",
+            "line-width" : {
+               "stops" : [
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "trails_alpine-trails_unpaved",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "alpine_trail" ],
+            [ "==", "surface", "unpaved" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(0, 124, 176)",
+            "line-width" : {
+               "stops" : [
+                  [ 12.5, 2 ],
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 2, 2 ]
+         }
+      },
+      {
+         "id" : "trails_alpine-trails_paved",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "alpine_trail" ],
+            [ "==", "surface", "paved" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(0, 124, 176)",
+            "line-width" : {
+               "stops" : [
+                  [ 12.5, 2 ],
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "trails_alpine-trails",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 13,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "alpine_trail" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(0, 124, 176)",
+            "line-width" : {
+               "stops" : [
+                  [ 10, 1 ],
+                  [ 12.5, 2 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "trails_mountain-trails_unpaved",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "mountain_trail" ],
+            [ "==", "surface", "unpaved" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(187, 30, 16)",
+            "line-width" : {
+               "stops" : [
+                  [ 12.5, 2 ],
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 2, 2 ]
+         }
+      },
+      {
+         "id" : "trails_mountain-trails_paved",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "mountain_trail" ],
+            [ "==", "surface", "paved" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(187, 30, 16)",
+            "line-width" : {
+               "stops" : [
+                  [ 12.5, 2 ],
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "trails_mountain-trails",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 13,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "mountain_trail" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(187, 30, 16)",
+            "line-width" : {
+               "stops" : [
+                  [ 10, 1 ],
+                  [ 12.5, 2 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "trails_hiking-trails_unpaved",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "hiking_trail" ],
+            [ "==", "surface", "unpaved" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(232, 140, 0)",
+            "line-width" : {
+               "stops" : [
+                  [ 12.5, 2 ],
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 2, 2 ]
+         }
+      },
+      {
+         "id" : "trails_hiking-trails_paved",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "hiking_trail" ],
+            [ "==", "surface", "paved" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(232, 140, 0)",
+            "line-width" : {
+               "stops" : [
+                  [ 12.5, 2 ],
+                  [ 14, 3 ],
+                  [ 18, 8 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "trails_hiking-trails",
+         "type" : "line",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 13,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-trails" ],
+            [ "==", "class", "hiking_trail" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(232, 140, 0)",
+            "line-width" : {
+               "stops" : [
+                  [ 10, 1 ],
+                  [ 12.5, 2 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "tourism_cave-grotto",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-tourism" ],
+            [ "==", "class", "cave_grotto" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 13, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "cave-grotto",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "tourism_wilderness-hut",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-tourism" ],
+            [ "==", "class", "wilderness_hut" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 12, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "wilderness-hut",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "tourism_remote-inn",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-tourism" ],
+            [ "==", "class", "remote_inn" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 11, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "remote-inn",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "tourism_parking",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-tourism" ],
+            [ "==", "class", "parking" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 10, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "parking",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "tourism_pictorial-place",
+         "type" : "symbol",
+         "source" : "ch.bak.bundesinventar-schuetzenswerte-ortsbilder",
+         "source-layer" : "ch.bak.bundesinventar-schuetzenswerte-ortsbilder-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "in", "categorie", "town", "market_town", "urban_village", "village", "hamlet", "special_case" ],
+            [ "==", "layerid", "isos-heritagesites" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 9, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "pictorial-place",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "tourism_castle",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-tourism" ],
+            [ "==", "class", "castle" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 8, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "castle",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "tourism_lookout-tower",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-tourism" ],
+            [ "==", "class", "lookout_tower" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 7, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "lookout-tower",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      },
+      {
+         "id" : "viaferrata_point",
+         "type" : "symbol",
+         "source" : "ch.swisstopo.swisstlm3d-wanderwege",
+         "source-layer" : "ch.swisstopo.swisstlm3d-wanderwege-layer",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "layerid", "hiking-viaferrata" ],
+            [ "==", "class", "via_ferrata_pt" ]
+         ],
+         "layout" : {
+            "icon-allow-overlap" : false,
+            "icon-rotation-alignment" : "viewport",
+            "icon-size" : {
+               "stops" : [
+                  [ 6, 14 ],
+                  [ 18, 34 ]
+               ]
+            },
+            "icon-image" : "viaferrata",
+            "icon-padding" : 20,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "icon-opacity" : 1,
+            "icon-translate-anchor" : "viewport",
+            "text-opacity" : 1
+         }
+      }
+   ],
+   "id" : "ch.swisstopo.wandern.vt",
+   "owner" : "swisstopo",
+   "visibility" : "public",
+   "draft" : false
+}
