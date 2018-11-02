@@ -175,7 +175,13 @@ IFS=','
 bounds="[${boundaries[*]// /,}]"
 
   let length_of_file=${#file}-$length_of_path
-      styles_json+="    \"${file:$length_of_path:$length_of_file-11}\":{\n\
+  style_and_version=${file:$length_of_path:$length_of_file-14}
+  style_name="${style_and_version%/*}"
+  style_version="${style_and_version##*/}"
+  style_and_version=${style_name}_${style_version}
+
+
+      styles_json+="    \"${style_and_version}\":{\n\
       \"style\":\"${file:$length_of_path:$length_of_file}\",\n\
       \"serve_rendered\":false,\n\
       \"serve_data\":true,\n\
