@@ -191,9 +191,9 @@ for directory in "$git_path"/styles/* ; do
                 validate=1
               fi
             elif [[ "$protocol" = "local" ]] ; then
-              file_id="${url#*://tilejson/}"
+              file_id="${url#*://}"
               file_id=${file_id:0:${#file_id} - 1}
-              if [[ ! -f "$tiles_path/$file_id" ]]; then
+              if [[ ! -f "$local_volume/$file_id" ]]; then
                 validate=1
                 (>&2 echo "no local file $file_id")
               fi
