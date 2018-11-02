@@ -91,19 +91,17 @@ for file in $path_to_data/*/*/tiles.mbtiles
 do
   
   let length_of_file=${#file}-$length_of_path
+  source_and_version=${file:$length_of_path:$length_of_file-14}
+  source_name="${source_and_version%/*}"
+  source_version="${source_and_version##*/}"
+  if [[ $source_version =~ ^[0-9]+$ ]]; then
+  source_and_version=${source_name}_${source_version}
+  fi
   data_json+="\
-    \"${file:$length_of_path:$length_of_file-14}\":{\n\
+    \"${source_name}_${source_version}\":{\n\
       \"mbtiles\":\"${file:$length_of_path:$length_of_file}\"\n\
     },"
 
-#TODO : remove this if block when styles have been corrected.
-  if [[ $file = *"current"* ]]
-    then
-      data_json+="\
-        \"${file:$length_of_path:$length_of_file-22}\":{\n\
-        \"mbtiles\":\"${file:$length_of_path:$length_of_file}\"\n\
-        },"
-  fi
 done
  data_json=${data_json:0:${#data_json}-1}
 
