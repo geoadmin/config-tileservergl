@@ -9,6 +9,9 @@ set -u
 git_path="."
 destination_path=""
 efs_volume=""
+efs_server=""
+efs_host=""
+environment="dev"
 local_volume=""
 mbtiles_location="mbtiles"
 fonts_update=0
@@ -32,14 +35,16 @@ function usage {
   echo -e "--mbtiles \t The directory containing the sources files used in scripts"
   echo -e "--git \t The local git repository where your styles are stored. [default: .]"
   echo -e "--destination \t The path  where our configuration is supposed to end up inside the efs volume.[default:'']"
-  echo -e "--efs \t the efs volume you wish to mount in read-write. [default: '']" 
+  echo -e "--efs \t the efs volume you wish to mount in read-write. [default: '']"
+  echo -e "--env \t the environment in which you're deploying [dev, int, prod]. [default: 'dev']" 
   echo -e "--mnt \t the local repository used as a mount point for the efs. [default: '']"
+  echo -e "\t we suggest including the environment in the local volume name too."
   echo -e "--fonts \t as the fonts syncing is a time consuming operation, it is \
 disabled by default. the --fonts flag will tell the script upload the fonts, which \
 will make the script run for a much longer time and you will cry when it happens. \
 To be called when new fonts are pushed, or when you push the content to a whole new directory"
-  echo -e "example usage \t: updateStyle.sh --destination=\"temp\" --efs=\"[SERVER NAME]://dev/vectortiles\" --mnt=\
-         \"/var/local/vectortiles\""
+  echo -e "example usage \t: updateStyle.sh --destination=\"temp\" --efs=\"[SERVER NAME]\" --mnt=\
+         \"/var/local/vectortiles\" --env=\"int\""
 }
 
 function cleanup {
@@ -67,8 +72,11 @@ if [ $# -gt 0 ]; then
             destination_path=${VALUE}
             ;;
         --efs)
-            efs_volume=${VALUE}
+	    efs_host=${VALUE}
             ;;
+	--env)
+	    environment=${VALUE}
+	    ;;
         --mnt)
             local_volume=${VALUE}
             ;;
@@ -105,6 +113,11 @@ let git_path_length=${#git_path}
 output_path=$(sudo -u "$user" mktemp -d)
 
 # We make sure the efs is mounted or we mount it.
+
+efs_volume="${efs_host}://${environment}/vectortiles"
+
+
+
 efs_is_mounted_to_local_volume=$(grep "$efs_volume $local_volume nfs4 rw" /proc/mounts || echo "")
 
 efs_is_mounted=$(grep "$efs_volume" /proc/mounts | grep nfs4 | grep rw || echo "")
@@ -178,9 +191,9 @@ for directory in "$git_path"/styles/* ; do
                 validate=1
               fi
             elif [[ "$protocol" = "local" ]] ; then
-              file_id="${url#*://tilejson/}"
+              file_id="${url#*://}"
               file_id=${file_id:0:${#file_id} - 1}
-              if [[ ! -f "$tiles_path/$file_id" ]]; then
+              if [[ ! -f "$local_volume/$file_id" ]]; then
                 validate=1
                 (>&2 echo "no local file $file_id")
               fi
@@ -225,6 +238,8 @@ fi
 sudo -u "$user" mkdir -p "$local_volume/$destination_path/sprites"
 sudo -u "$user" mkdir -p "$local_volume"/"$destination_path"json/
 sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume"/"$destination_path"json/
+
+
 #rsync between the destination folder in the EFS and the local styles, font and sprites directory
 echo "Starting to rsync"
 
