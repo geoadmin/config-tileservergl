@@ -129,15 +129,18 @@ do
 #For a tile file that is at the same location. 
 #We then read the bounds value from the file and, if none are found or the file isn't found, 
 #we return the reversed default value. At the end of these loops,
+IFS=' '
 urls=$(jq '.url' "$temporary_json_storage/insides.json")
 while read -r  url 
 do
   if [[ "$url" = *"mbtiles"* ]]
     then
+      
       identifier="${url:12:${#url}-14}"
-      if [[ ! "$identifier" = *"/"* ]]
-        then
-        identifier="$identifier/current"
+      source_name="${identifier%_*}"
+      source_version="${identifier##*_}"
+      if [[ $source_version =~ ^[0-9]+$ ]]; then
+        identifier="${source_name}/${source_version}"
       fi
       IFS=' '
       IFS=',' read -r -a fetchedboundaries <<< $(sqlite3 "$path_to_data/$identifier/tiles.mbtiles" "SELECT value FROM metadata WHERE name= 'bounds';" || echo "180,90,-180,-90")
