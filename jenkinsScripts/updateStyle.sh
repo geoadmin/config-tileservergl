@@ -184,8 +184,10 @@ for directory in "$git_path"/styles/* ; do
             if [[ "$protocol" = "mbtiles" ]]; then
               url_id="${url#*://}"
               url_id="${url_id:1:${#url_id} - 3}"
+
               src_id="${url_id%_*}"
               src_v="${url_id##*_}"
+
               if [[ ! -d "$tiles_path/$src_id/$src_v" ]] && [[ ! -L "$tiles_path/$src_id/$src_v" ]]; then
                 (>&2 echo "unknown mbtiles id : $url_id")
                 validate=1
@@ -230,6 +232,8 @@ for directory in "$git_path"/styles/* ; do
   done
 done
 
+exit
+
 # for fonts, we are going for a recursive update copy. It will be faster than a copy and only overwrites more recent files rather than copying everything.
 if [[ "${fonts_update}" = 1 ]] ; then
   echo "fonts update required. Copying fonts to temporary folder"
@@ -238,7 +242,6 @@ fi
 sudo -u "$user" mkdir -p "$local_volume/$destination_path/sprites"
 sudo -u "$user" mkdir -p "$local_volume"/"$destination_path"json/
 sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume"/"$destination_path"json/
-
 
 #rsync between the destination folder in the EFS and the local styles, font and sprites directory
 echo "Starting to rsync"
