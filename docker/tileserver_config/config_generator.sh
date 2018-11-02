@@ -97,8 +97,11 @@ do
   if [[ $source_version =~ ^[0-9]+$ ]]; then
   source_and_version=${source_name}_${source_version}
   fi
+
+  echo ${source_and_version}
+  
   data_json+="\
-    \"${source_name}_${source_version}\":{\n\
+    \"${source_and_version}\":{\n\
       \"mbtiles\":\"${file:$length_of_path:$length_of_file}\"\n\
     },"
 
@@ -179,6 +182,9 @@ bounds="[${boundaries[*]// /,}]"
   style_name="${style_and_version%/*}"
   style_version="${style_and_version##*/}"
   style_and_version=${style_name}_${style_version}
+  if [[ $file = *"current"* ]]; then
+    style_and_version="${style_name}_current"
+  fi
 
 
       styles_json+="    \"${style_and_version}\":{\n\
