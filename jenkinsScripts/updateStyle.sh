@@ -17,8 +17,6 @@ mbtiles_location="mbtiles"
 fonts_update=0
 group="mockup_geodata"
 user="mockup_geodata"
-target_hostname="tileserver.dev.bgdi.ch"
-possible_hostname=("tileserver.dev.bgdi.ch" "tileserver.int.bgdi.ch" "vectortiles.geo.admin.ch")
 
 if [ "$(whoami)" != "root" ]; then
   (>&2 echo "Script must be run as root")
@@ -78,12 +76,6 @@ if [ $# -gt 0 ]; then
             ;;
 	--env)
 	    environment=${VALUE}
-	    if [ ${VALUE} = 'int' ] ; then
-		target_hostname="tileserver.int.bgdi.ch"
-	    elif [ ${VALUE} = 'prod' ] ; then
-		target_hostname="vectortiles.geo.admin.ch"
-	    fi
-		echo ${target_hostname}
 	    ;;
         --mnt)
             local_volume=${VALUE}
@@ -247,10 +239,6 @@ sudo -u "$user" mkdir -p "$local_volume/$destination_path/sprites"
 sudo -u "$user" mkdir -p "$local_volume"/"$destination_path"json/
 sudo -u "$user" cp "$git_path/json_sources/"*".json" "$local_volume"/"$destination_path"json/
 
-#we replace the hostname by the appropriate one depending on the environment.
-for target in ${possible_hostname[*]}; do
-  find "$output_path/" -type f -exec sed -i "s/${target}/${target_hostname}/g" {} \;
-done
 
 #rsync between the destination folder in the EFS and the local styles, font and sprites directory
 echo "Starting to rsync"

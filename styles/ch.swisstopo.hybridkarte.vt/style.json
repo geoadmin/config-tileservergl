@@ -31,12 +31,12 @@
       "type": "vector"
     },
     "ch.swisstopo.swissimage": {
-      "url": "https://vectortiles.geo.admin.ch/json/swissimage.json",
+      "url": "local://json/swissimage.json",
       "type": "raster"
     }
   },
   "sprite": "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
-  "glyphs": "https://vectortiles.geo.admin.ch/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "local://fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "swissimage_",
