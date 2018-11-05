@@ -92,11 +92,6 @@ do
   
   let length_of_file=${#file}-$length_of_path
   source_and_version=${file:$length_of_path:$length_of_file-14}
-  source_name="${source_and_version%/*}"
-  source_version="${source_and_version##*/}"
-  if [[ $source_version =~ ^[0-9]+$ ]]; then
-  source_and_version=${source_name}_${source_version}
-  fi
 
   echo ${source_and_version}
   
@@ -138,12 +133,8 @@ do
     then
       
       identifier="${url:12:${#url}-14}"
-      source_name="${identifier%_*}"
-      source_version="${identifier##*_}"
-      if [[ $source_version =~ ^[0-9]+$ ]]; then
-        identifier="${source_name}/${source_version}"
-      fi
-      IFS=' '
+      echo "$identifier"
+      
       IFS=',' read -r -a fetchedboundaries <<< $(sqlite3 "$path_to_data/$identifier/tiles.mbtiles" "SELECT value FROM metadata WHERE name= 'bounds';" || echo "180,90,-180,-90")
 for index in "${!fetchedboundaries[@]}"
            do
@@ -178,14 +169,8 @@ IFS=','
 bounds="[${boundaries[*]// /,}]"
 
   let length_of_file=${#file}-$length_of_path
-  style_and_version=${file:$length_of_path:$length_of_file-14}
-  style_name="${style_and_version%/*}"
-  style_version="${style_and_version##*/}"
-  style_and_version=${style_name}_${style_version}
-  if [[ $file = *"current"* ]]; then
-    style_and_version="${style_name}_current"
-  fi
-
+  style_and_version=${file:$length_of_path:$length_of_file-11}
+  echo 'style_and_version'
 
       styles_json+="    \"${style_and_version}\":{\n\
       \"style\":\"${file:$length_of_path:$length_of_file}\",\n\
