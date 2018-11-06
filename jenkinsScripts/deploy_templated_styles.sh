@@ -5,7 +5,7 @@
 set -e
 set -u
 
-
+origin_directory=""
 destination_directory=""
 mako_server_variable_value=""
 mako_protocol_variable_value=""
@@ -26,10 +26,11 @@ function usage {
   echo "Usage:"
   echo
   echo "-h --help"
+  echo -e "--origin \t the directory that contains the styles templates."
   echo -e "--dest \t the directory where you will write your styles. The script will create it if it doesn't exist."
   echo -e "--serverurl \t the url on which sources will be served."
   echo -e "--protocol \t the protocol used to connect to the server."
-  echo -e "example usage \t: deploy_templated_styles.sh --dest=\"/var/local/vectortiles/gl-styles\" --serverurl=\"vectortiles.geo.admin.ch\" --protocol=\"https\""
+  echo -e "example usage \t: jenkinsScripts/deploy_templated_styles.sh --dest=\"/var/local/vectortiles/gl-styles\" --serverurl=\"vectortiles.geo.admin.ch\" --protocol=\"https\" --origin=\"./styles\""
 }
 
 function cleanup {
@@ -53,7 +54,10 @@ if [ $# -gt 0 ]; then
             mako_protocol_variable_value=${VALUE}
             ;;
         --serverurl)
-            mako_server_variable_value==${VALUE}
+            mako_server_variable_value=${VALUE}
+            ;;
+        --origin)
+            origin_directory=${VALUE}
             ;;
         *)
             (>&2  echo "ERROR: unknown parameter \"${PARAM}\"")
@@ -85,7 +89,7 @@ echo "Starting to process styles"
 
 shopt -s nullglob
 
-for directory in styles/* ; do
+for directory in "${origin_directory}"/* ; do
 # we take the commits hash and timestamps and put them into two arrays 
   dirname=${directory##*/}
   base_path="$destination_directory/$dirname"
@@ -94,8 +98,8 @@ for directory in styles/* ; do
   ${mako_path} --var 'protocol'="${mako_protocol_variable_value}" --var 'servername'="${mako_server_variable_value}" "${directory}"/style.json > "${base_path}"/current/style.json
 done
 
-mkdir -p "$destination_directory"/json/
-cp "./json_sources/"*.json "$destination_directory"/json/
+mkdir -p "$destination_directory"/../json/
+cp "./json_sources/"*.json "$destination_directory"/../json/
 
 duration=$SECONDS
 echo "Elapsed time: $((duration / 60)) minutes and $((duration % 60)) seconds."
