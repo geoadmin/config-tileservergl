@@ -16,15 +16,15 @@
    },
    "sources" : {
       "ch.swisstopo.swisstlm3d-wanderwege" : {
-         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.swisstlm3d-wanderwege/v0001/tileset.json",
+         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.swisstlm3d-wanderwege/v001/tileset.json",
          "type" : "vector"
       },
       "ch.astra.wanderland" : {
-         "url" : "${protocol}://${servername}/mbtiles/ch.astra.wanderland/v0001/tileset.json",
+         "url" : "${protocol}://${servername}/mbtiles/ch.astra.wanderland/v001/tileset.json",
          "type" : "vector"
       },
       "ch.bak.bundesinventar-schuetzenswerte-ortsbilder" : {
-         "url" : "${protocol}://${servername}/mbtiles/ch.bak.bundesinventar-schuetzenswerte-ortsbilder/v0001/tileset.json",
+         "url" : "${protocol}://${servername}/mbtiles/ch.bak.bundesinventar-schuetzenswerte-ortsbilder/v001/tileset.json",
          "type" : "vector"
       }
    },

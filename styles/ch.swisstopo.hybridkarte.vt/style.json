@@ -19,15 +19,15 @@
   },
   "sources": {
     "ch.swissnames3d": {
-      "url": "${protocol}://${servername}/mbtiles/ch.swisstopo.swissnames3d/v0001/tileset.json",
+      "url": "${protocol}://${servername}/mbtiles/ch.swisstopo.swissnames3d/v001/tileset.json",
       "type": "vector"
     },
     "ch.swisstopo.amtliches-strassenverzeichnis_validiert": {
-      "url": "${protocol}://${servername}/mbtiles/ch.swisstopo.amtliches-strassenverzeichnis_validiert/v0001/tileset.json",
+      "url": "${protocol}://${servername}/mbtiles/ch.swisstopo.amtliches-strassenverzeichnis_validiert/v001/tileset.json",
       "type": "vector"
     },
     "ch.bav.haltestellen-oev": {
-      "url": "${protocol}://${servername}/mbtiles/ch.bav.haltestellen-oev/v0001/tileset.json",
+      "url": "${protocol}://${servername}/mbtiles/ch.bav.haltestellen-oev/v001/tileset.json",
       "type": "vector"
     },
     "ch.swisstopo.swissimage": {
