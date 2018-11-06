@@ -38,6 +38,8 @@ function usage {
   echo -e "--env \t the environment in which you're deploying [dev, int, prod]. [default: 'dev']" 
   echo -e "--path \t the local repository used as the base to  mount  the efs. [default: '/var/local']"
   echo -e "--dest \t the directory, both in efs and locally, that you're mounting [default: 'vib2d_tiles']"
+  echo -e "--serverurl \t the url on which vectortiles will be developped. [default: 'vectortiles.geo.admin.ch']"
+  echo -e "--protocol \t the protocol used to connect to the server. [default: 'https']"
   echo -e "example usage \t: updateStyle.sh --destination=\"\" --efs=\"[SERVER NAME]\" --path=\
          \"/var/anotherlocal\" --env=\"dev\" --dest=\"style_storage\""
 }
@@ -58,14 +60,23 @@ if [ $# -gt 0 ]; then
             usage
             exit
             ;;
+        --dest)
+            destination_directory=${VALUE}
+            ;;
+        --protocol)
+            mako_protocol_variable_value=${VALUE}
+            ;;
+        --serverurl)
+            mako_server_variable_value==${VALUE}
+            ;;
         --efs)
-	    efs_host=${VALUE}
+	    efs_instance=${VALUE}
             ;;
 	--env)
 	    environment=${VALUE}
 	    ;;
         --mnt)
-            local_volume=${VALUE}
+            local_path_to_mount_point=${VALUE}
             ;;
         *)
             (>&2  echo "ERROR: unknown parameter \"${PARAM}\"")
