@@ -36,7 +36,7 @@
          "type" : "raster"
       }
    },
-   "sprite" : "${protocol}://${servername}/gl-styles/ch.swisstopo.leichte-basiskarte.vt/current",
+   "sprite" : "${protocol}://${servername}/gl-styles/ch.swisstopo.leichte-basiskarte.vt/current/sprites",
    "glyphs" : "${protocol}://${servername}/fonts/{fontstack}/{range}.pbf",
    "layers" : [
       {

@@ -28,7 +28,7 @@
          "type" : "vector"
       }
    },
-   "sprite" : "${protocol}://${servername}/gl-styles/ch.swisstopo.wandern.vt/current",
+   "sprite" : "${protocol}://${servername}/gl-styles/ch.swisstopo.wandern.vt/current/sprites",
    "glyphs" : "${protocol}://${servername}/fonts/{fontstack}/{range}.pbf",
    "layers" : [
       {
