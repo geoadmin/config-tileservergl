@@ -16,28 +16,28 @@
    },
    "sources" : {
       "ch.bav.haltestellen-oev" : {
-         "url" : "mbtiles://{ch.bav.haltestellen-oev/1539076848}",
+         "url" : "${protocol}://${servername}/mbtiles/ch.bav.haltestellen-oev/v0001/tileset.json",
          "type" : "vector"
       },
       "ch.swissnames3d" : {
-         "url" : "mbtiles://{ch.swisstopo.swissnames3d/1539076162}",
+         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.swissnames3d/v0001/tileset.json",
          "type" : "vector"
       },
       "ch.swisstopo.amtliches-strassenverzeichnis_validiert" : {
-         "url" : "mbtiles://{ch.swisstopo.amtliches-strassenverzeichnis_validiert/1539075924}",
+         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.amtliches-strassenverzeichnis_validiert/v0001/tileset.json",
          "type" : "vector"
       },
       "ch.swisstopo.vereinfachte-hintergrundkarte_vektorkacheln.mbtiles" : {
-         "url" : "mbtiles://{ch.swisstopo.vereinfachte-hintergrundkarte_vektorkacheln/1539684263}",
+         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.vereinfachte-hintergrundkarte_vektorkacheln/v0001/tileset.json",
          "type" : "vector"
       },
       "ch.swisstopo.swissalti3d-reliefschattierung" : {
-         "url" : "local://json/relief.json",
+         "url" : "${protocol}://${servername}/json/relief.json",
          "type" : "raster"
       }
    },
-   "sprite" : "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
-   "glyphs" : "local://fonts/{fontstack}/{range}.pbf",
+   "sprite" : "${protocol}://${servername}/gl-styles/ch.swisstopo.leichte-basiskarte.vt/current",
+   "glyphs" : "${protocol}://${servername}/fonts/{fontstack}/{range}.pbf",
    "layers" : [
       {
          "id" : "background_",
