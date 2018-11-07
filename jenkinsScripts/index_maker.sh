@@ -80,11 +80,56 @@ virtualenv ${venv_path}
 ${pip_path} install Mako==1.0.7
 #HERE : TODO : write begin of template.
 
-echo "<!DOCTYPE html>" > ${index}
-echo "  <html>" >> ${index}
-echo "    <body>" >> ${index}
-echo "      <h1> ${title} </h1>" >> ${index}
-echo "      <ul>" >> ${index}
+echo "<!DOCTYPE html>" >>${index}
+echo "" >>${index}
+echo "<head>" >>${index}
+echo "  <meta charset=\"utf-8\">" >>${index}
+echo "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=\$start\">" >>${index}
+echo "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" >>${index}
+echo "  <title>Vector Tiles Styles</title>" >>${index}
+echo "" >>${index}
+echo "  <link rel=\"stylesheet\" href=\"files/css/vendors.css\">" >>${index}
+echo "  <link rel=\"stylesheet\" href=\"files/css/admin1.css\">" >>${index}
+echo "  <link rel=\"stylesheet\" href=\"files/css/print.css\">" >>${index}
+echo "" >>${index}
+echo "</head>" >>${index}
+echo "" >>${index}
+echo "<body>" >>${index}
+echo "  <div class=\"container container-main\">" >>${index}
+echo "" >>${index}
+echo "    <header>" >>${index}
+echo "        <div class=\"clearfix\">" >>${index}
+echo "          <section class=\"nav-services clearfix\">" >>${index}
+echo "            <nav class=\"nav-lang\">" >>${index}
+echo "              <ul>" >>${index}
+echo "              </ul>" >>${index}
+echo "            </nav>" >>${index}
+echo "          </section>" >>${index}
+echo "        </div>" >>${index}
+echo "        <a href=\"#\" class=\"brand hidden-xs\" title=\"back to home\">" >>${index}
+echo "          <img src=\"files/img/logo-CH.png\" alt=\"back to home\" />" >>${index}
+echo "          <h1>${title}<h1>" >>${index}
+echo "        </a>" >>${index}
+echo "    </header>" >>${index}
+echo "" >>${index}
+echo "          <nav class=\"nav-main yamm navbar\" id=\"main-navigation\"></nav>" >>${index}
+echo "    <div class=\"container-fluid\">" >>${index}
+echo "      <div class=\"row\">" >>${index}
+echo "                  <div class=\"col-sm-4 col-md-3 drilldown\">" >>${index}
+echo "            <a href=\"#collapseSubNav\" data-toggle=\"collapse\" class=\"collapsed visible-xs\">Sub-Navi" >>${index}
+echo "            <div class=\"drilldown-container\">" >>${index}
+echo "            </div>" >>${index}
+echo "          </div>" >>${index}
+echo "                <div class=\"col-sm-8 col-md-9\" id=\"content\">" >>${index}
+echo "          <div class=\"row\">" >>${index}
+echo "                <div class=\"col-sm-12\">" >>${index}
+echo "<!-- MAIN CONTENT START--> " >>${index}
+echo "" >>${index}
+echo "<h1>List of available styles</h1>" >>${index}
+echo "  <div id=\"navigation\" style=\"margin-bottom:14px;\"></div>" >>${index}
+echo "  <div id=\"listing\">" >>${index}
+echo "  <ul>" >>${index}
+
 
 dirname="${resource_dir##*/}"
 for jsonfile in "${resource_dir}"/*/*/${resource_type}.json ; do
@@ -102,8 +147,20 @@ for jsonfile in "${resource_dir}"/*/*/${resource_type}.json ; do
     echo "        </li>" >> ${index}
   fi
 done
-echo "      </ul>" >> ${index}
 
-#HERE : TODO : write end of template
-echo "    </body>" >> ${index}
-echo "  </html>" >> ${index}
+ 71     </div>
+ 72       </div>
+ 73         </div>
+ 74       </div>
+ 75     </div>
+ 76         <footer>
+ 77           <address>
+ 78         <span class="hidden-xs">Swiss Confederation</span>
+ 79         <nav class="pull-right">
+ 80           <ul>
+ 81 
+ 82             <li><a href="mailto:info@geo.admin.ch">Contact</a></li>
+ 83           </ul>
+ 84         </nav>
+      </address>
+
