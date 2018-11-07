@@ -26,50 +26,45 @@ function usage {
   echo "Usage:"
   echo
   echo "-h --help"
-  echo -e "--origin \t the directory that contains the styles templates."
-  echo -e "--dest \t the directory where you will write your styles. The script will create it if it doesn't exist."
-  echo -e "--serverurl \t the url on which sources will be served."
-  echo -e "--protocol \t the protocol used to connect to the server."
-  echo -e "example usage \t: jenkinsScripts/deploy_templated_styles.sh --dest=\"/var/local/vectortiles/gl-styles\" --serverurl=\"vectortiles.geo.admin.ch\" --protocol=\"https\" --origin=\"./styles\""
+  echo -e "-o \t the directory that contains the styles templates."
+  echo -e "-d \t the directory where you will write your styles. The script will create it if it doesn't exist."
+  echo -e "-s \t the url on which sources will be served."
+  echo -e " -p \t the protocol used to connect to the server."
+  echo -e "example usage \t: jenkinsScripts/deploy_templated_styles.sh -d \"/var/local/vectortiles/gl-styles\" -s \"vectortiles.geo.admin.ch\" -p \"https\" -o \"./styles\""
 }
 
 function cleanup {
   rm -rf "$venv_path" || :
 }
 
-
-if [ $# -gt 0 ]; then
-  while [ "${1:-}" != "" ]; do
-    PARAM=$(echo "${1}" | awk -F= '{print $1}')
-    VALUE=$(echo "${1}" | awk -F= '{print $2}')
-    case ${PARAM} in
-        --help)
-            usage
-            exit
-            ;;
-        --dest)
-            destination_directory=${VALUE}
-            ;;
-        --protocol)
-            mako_protocol_variable_value=${VALUE}
-            ;;
-        --serverurl)
-            mako_server_variable_value=${VALUE}
-            ;;
-        --origin)
-            origin_directory=${VALUE}
-            ;;
-        *)
-            (>&2  echo "ERROR: unknown parameter \"${PARAM}\"")
-            usage
-            exit 1
-            ;;
-    esac
-    shift
-  done
-fi
-
-
+getopts ":hd:p:s:o:" opt; do
+  case ${opt} in
+    h)
+      usage
+      exit
+      ;;
+    d)
+      destination_directory=${OPTARG}
+      ;;
+    p)
+      mako_protocol_variable_value=${OPTARG}
+      ;;
+    s)
+      mako_server_variable_value=${OPTARG}
+      ;;
+    o)
+      origin_directory=${OPTARG}
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 2
+      ;;
+  esac
+done
 
 SECONDS=0
 
