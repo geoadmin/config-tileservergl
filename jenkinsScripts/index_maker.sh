@@ -67,7 +67,7 @@ for jsonfile in "${resource_dir}"/*/*/${resource_type}.json ; do
     style_name=$(jq '.name' ${jsonfile})
     relative_url="/${dirname}${jsonfile:${#resource_dir}}"
     echo "        <li>" >> ${index} 
-    echo "          ${style_name} --> <a href=\"${relative_url}\"></a>" >> ${index}
+    echo "          ${style_name} --> <a href=\"${relative_url}\">\"JSON\"</a>" >> ${index}
     echo "        </li>" >> ${index}
   fi
 done
