@@ -92,7 +92,7 @@ shopt -s nullglob
 for directory in "${origin_directory}"/* ; do
 # we take the commits hash and timestamps and put them into two arrays 
   dirname=${directory##*/}
-  base_path="$destination_directory/$dirname"
+  base_path="${destination_directory}/${dirname}"
   mkdir -p "${base_path}/current"
   cp -Tr "${directory}/" "${base_path}/current/" || :
   ${mako_path} --var 'protocol'="${mako_protocol_variable_value}" --var 'servername'="${mako_server_variable_value}" "${directory}"/style.json > "${base_path}"/current/style.json
