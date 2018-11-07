@@ -27,18 +27,21 @@
          "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.amtliches-strassenverzeichnis_validiert/v001/tileset.json",
          "type" : "vector"
       },
-      "ch.swisstopo.vereinfachte-hintergrundkarte_vektorkacheln.mbtiles" : {
-         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.vereinfachte-hintergrundkarte_vektorkacheln/v001/tileset.json",
+      "ch.swisstopo.vektorkarte.vt" : {
+         "url" : "${protocol}://${servername}/mbtiles/ch.swisstopo.vektorkarte.vt/v001/tileset.json",
          "type" : "vector"
       },
       "ch.swisstopo.swissalti3d-reliefschattierung" : {
          "url" : "${protocol}://${servername}/json/relief.json",
          "type" : "raster"
+      },
+      "OpenMapTiles" : {
+         "url" : "${protocol}://${servername}/mbtiles/osm-2017-07-24-v3.6.2-europe-cut-20170918/v001/tileset.json",
+         "type" : "vector"
       }
    },
-   "sprite" : "${protocol}://${servername}/gl-styles/ch.swisstopo.leichte-basiskarte.vt/current/sprites",
+   "sprite" : "${protocol}://${servername}/styles/",
    "glyphs" : "${protocol}://${servername}/fonts/{fontstack}/{range}.pbf",
-
    "layers" : [
       {
          "id" : "background_",
@@ -49,6 +52,1232 @@
          },
          "paint" : {
             "background-color" : "rgb(255, 255, 255)"
+         }
+      },
+      {
+         "id" : "osm_settlement",
+         "type" : "fill",
+         "source" : "OpenMapTiles",
+         "source-layer" : "landuse",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "residential" ]
+         ],
+         "layout" : {
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "fill-antialias" : true,
+            "fill-opacity" : {
+               "base" : 1,
+               "stops" : [
+                  [ 7, 0 ],
+                  [ 10, 0.8 ],
+                  [ 14, 0.5 ],
+                  [ 15.5, 0.5 ],
+                  [ 16, 0 ]
+               ]
+            },
+            "fill-color" : "rgb(236, 228, 217)"
+         }
+      },
+      {
+         "id" : "osm_wood",
+         "type" : "fill",
+         "source" : "OpenMapTiles",
+         "source-layer" : "landcover",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "wood" ]
+         ],
+         "layout" : {
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "fill-antialias" : true,
+            "fill-opacity" : {
+               "base" : 1,
+               "stops" : [
+                  [ 6, 0 ],
+                  [ 13, 0.7 ]
+               ]
+            },
+            "fill-color" : {
+               "stops" : [
+                  [ 6, "rgb(87, 166, 38)" ],
+                  [ 13, "rgb(218, 243, 202)" ]
+               ]
+            }
+         }
+      },
+      {
+         "id" : "osm_waterway",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "waterway",
+         "maxzoom" : 24,
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(212, 236, 253)",
+            "line-width" : {
+               "base" : 1.35,
+               "stops" : [
+                  [ 6, 1.5 ],
+                  [ 19, 7 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_water",
+         "type" : "fill",
+         "source" : "OpenMapTiles",
+         "source-layer" : "water",
+         "maxzoom" : 24,
+         "layout" : {
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "fill-antialias" : true,
+            "fill-color" : "rgb(212, 236, 253)"
+         }
+      },
+      {
+         "id" : "osm_railtraffic_tunnel_service-track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "rail" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "butt",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 15, 1.25 ],
+                  [ 19, 2.5 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 4, 4 ]
+         }
+      },
+      {
+         "id" : "osm_railtraffic_tunnel_side-track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "in", "subclass", "tram", "funicular", "light_rail" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "butt",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 15, 1.25 ],
+                  [ 19, 2.5 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 4, 4 ]
+         }
+      },
+      {
+         "id" : "osm_railtraffic_tunnel_narrow-gauche",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "narrow_gauge" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 8, 1.7 ],
+                  [ 13, 2 ],
+                  [ 15, 2 ],
+                  [ 18, 6 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 4, 4 ]
+         }
+      },
+      {
+         "id" : "osm_railtraffic_tunnel_normal-gauche",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "rail" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "butt",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 8, 1.7 ],
+                  [ 13, 2 ],
+                  [ 15, 1.25 ],
+                  [ 19, 2.5 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : {
+               "base" : 1,
+               "stops" : [
+                  [ 9,
+                     [ 1, 0 ]
+                  ],
+                  [ 10,
+                     [ 4, 4 ]
+                  ]
+               ]
+            }
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_contour_track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12, 0.75 ],
+                  [ 20, 0.5 ]
+               ]
+            },
+            "line-gap-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 14, 0 ],
+                  [ 18, 4 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 0.5, 0.5 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12.5, 0.25 ],
+                  [ 14, 1 ],
+                  [ 18, 9 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_contour_drive",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "tertiary" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12, 0.75 ],
+                  [ 20, 2 ]
+               ]
+            },
+            "line-gap-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 13, 0 ],
+                  [ 14, 2 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 3, 3 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_drive",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "tertiary" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12.5, 0.5 ],
+                  [ 14, 2 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_contour_road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "secondary" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12, 0.75 ],
+                  [ 20, 2 ]
+               ]
+            },
+            "line-gap-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 13, 0 ],
+                  [ 14, 2 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 3, 3 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "secondary" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12.5, 0.5 ],
+                  [ 14, 2 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_contour_connecting-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "primary" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 10, 1 ],
+                  [ 16, 2 ]
+               ]
+            },
+            "line-gap-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 10, 0 ],
+                  [ 18, 26 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 3, 3 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_connecting-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "primary" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 8.5, 0.5 ],
+                  [ 10, 0.75 ],
+                  [ 18, 26 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_contour_trunk-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "trunk" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 10, 1 ],
+                  [ 16, 2 ]
+               ]
+            },
+            "line-gap-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12, 0 ],
+                  [ 18, 30 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 3, 3 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_trunk-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "trunk" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 5, 0.75 ],
+                  [ 18, 32 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_contour_highway",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "motorway" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "butt",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 10, 1 ],
+                  [ 16, 2 ]
+               ]
+            },
+            "line-gap-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 5, 0.75 ],
+                  [ 18, 32 ]
+               ]
+            },
+            "line-offset" : {
+               "base" : 1.99,
+               "stops" : [
+                  [ 12, 1 ],
+                  [ 15, 5 ],
+                  [ 17, 9 ],
+                  [ 18, 13 ],
+                  [ 20, 10 ]
+               ]
+            },
+            "line-dasharray" : [ 3, 3 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_tunnel_highway",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "==", "class", "motorway" ],
+            [ "==", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 9, 2.5 ],
+                  [ 12, 5 ],
+                  [ 18, 32 ]
+               ]
+            },
+            "line-offset" : {
+               "base" : 1.99,
+               "stops" : [
+                  [ 12, 1 ],
+                  [ 15, 5 ],
+                  [ 17, 9 ],
+                  [ 18, 13 ],
+                  [ 20, 10 ]
+               ]
+            },
+            "line-blur" : 0,
+            "line-dasharray" : [ 1, 0 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "square",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(221, 214, 213)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 15, 1 ],
+                  [ 18, 4 ]
+               ]
+            },
+            "line-offset" : 0,
+            "line-dasharray" : [ 5, 1 ]
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_contour_drive",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "tertiary" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 12, 1.3 ],
+                  [ 18, 24 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_contour_road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "secondary" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 12, 1.3 ],
+                  [ 18, 24 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_contour_connecting-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "primary" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 12, 1.3 ],
+                  [ 18, 31 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_contour_trunk-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "trunk" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 8, 1.75 ],
+                  [ 18, 37 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_contour_highway",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "motorway" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(205, 195, 193)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 12, 6 ],
+                  [ 18, 37 ]
+               ]
+            },
+            "line-offset" : {
+               "base" : 1.99,
+               "stops" : [
+                  [ 12, 1 ],
+                  [ 15, 5 ],
+                  [ 17, 9 ],
+                  [ 18, 13 ],
+                  [ 20, 10 ]
+               ]
+            }
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_drive",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "tertiary" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(252, 252, 252)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12.5, 0.5 ],
+                  [ 14, 2 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "secondary" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "bevel",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(252, 252, 252)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 12.5, 0.5 ],
+                  [ 14, 2 ],
+                  [ 18, 18 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_connecting-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "primary" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 255, 199)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 8.5, 0.5 ],
+                  [ 10, 0.75 ],
+                  [ 18, 26 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_trunk-road",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "trunk" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 216, 218)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 5, 0.75 ],
+                  [ 18, 32 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_roadtraffic_base_highway",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "motorway" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 225, 178)",
+            "line-width" : {
+               "base" : 1.8,
+               "stops" : [
+                  [ 9, 2.5 ],
+                  [ 12, 5 ],
+                  [ 18, 32 ]
+               ]
+            },
+            "line-offset" : {
+               "base" : 1.99,
+               "stops" : [
+                  [ 12, 1 ],
+                  [ 15, 5 ],
+                  [ 17, 9 ],
+                  [ 18, 13 ],
+                  [ 20, 10 ]
+               ]
+            }
+         }
+      },
+      {
+         "id" : "osm_railtraffic_base_service-track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "rail" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 15, 1.25 ],
+                  [ 19, 2.5 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_railtraffic_base_side-track",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "in", "subclass", "tram", "funicular", "light_rail" ],
+            [ "!=", "brunnel", "tunnel" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 15, 1.25 ],
+                  [ 19, 2.5 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_railtraffic_base_narrow-gauche",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "rail" ],
+            [ "==", "subclass", "narrow_gauge" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 8, 1 ],
+                  [ 15, 2 ],
+                  [ 18, 6 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_railtraffic_base_normal-gauche",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "rail" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 143, 130)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 8, 1.7 ],
+                  [ 13, 2 ],
+                  [ 15, 6 ],
+                  [ 18, 9 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_railtraffic_base_normal-gauche_centerline",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "transportation",
+         "maxzoom" : 24,
+         "filter" : [ "all",
+            [ "!=", "brunnel", "tunnel" ],
+            [ "==", "class", "rail" ]
+         ],
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : 1,
+            "line-color" : "rgb(255, 255, 255)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 14.5, 0 ],
+                  [ 15, 0.5 ],
+                  [ 18, 3 ]
+               ]
+            },
+            "line-offset" : 0
+         }
+      },
+      {
+         "id" : "osm_buildings_contour",
+         "type" : "line",
+         "source" : "OpenMapTiles",
+         "source-layer" : "building",
+         "maxzoom" : 24,
+         "layout" : {
+            "line-cap" : "round",
+            "line-join" : "round",
+            "line-miter-limit" : 2,
+            "line-round-limit" : 1.05,
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "line-opacity" : {
+               "base" : 1,
+               "stops" : [
+                  [ 14.5, 0 ],
+                  [ 16, 1 ]
+               ]
+            },
+            "line-color" : "rgb(255, 255, 255)",
+            "line-width" : {
+               "base" : 1.5,
+               "stops" : [
+                  [ 14, 1.6 ],
+                  [ 20, 6 ]
+               ]
+            }
+         }
+      },
+      {
+         "id" : "osm_buildings_",
+         "type" : "fill",
+         "source" : "OpenMapTiles",
+         "source-layer" : "building",
+         "maxzoom" : 24,
+         "layout" : {
+            "visibility" : "visible"
+         },
+         "paint" : {
+            "fill-antialias" : true,
+            "fill-opacity" : {
+               "base" : 1,
+               "stops" : [
+                  [ 14.5, 0 ],
+                  [ 16, 1 ]
+               ]
+            },
+            "fill-color" : "rgb(204, 204, 204)"
          }
       },
       {
