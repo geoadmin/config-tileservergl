@@ -69,6 +69,8 @@ for jsonfile in "${resource_dir}"/*/*/${resource_type}.json ; do
     echo "        <li>" >> ${index} 
     echo "          ${style_name} --> <a href=\"${relative_url}\">\"JSON\"</a>" >> ${index}
     echo "        </li>" >> ${index}
+    echo "          ${style_name} --> <a href=\"${relative_url}\"></a>" >> ${index}
+    echo "        </li>" >> ${index}
   fi
 done
 echo "      </ul>" >> ${index}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${layername}</title>
+  <link rel="stylesheet" type="text/css" href="${protocol}://${servername}/static/mapbox-gl.css" />
+  <script src="${protocol}://${servername}/static/mapbox-gl.js"></script>
+  <link rel="stylesheet" type="text/css" href="${protocol}://${servername}/static/mapbox.css" />
+  <script src="${protocol}://${servername}/static/mapbox.js"></script>
+  <script src="${protocol}://${servername}/static/leaflet-hash.js"></script>
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+	<h1 style="display:none;">${layername}</h1>
+  <div id='map'></div>
+  <script>
+    var q = (location.search || '').substr(1).split('&');
+    var preference =
+      q.indexOf('vector') >= 0 ? 'vector' :
+        (q.indexOf('raster') >= 0 ? 'raster' :
+          (mapboxgl.supported() ? 'vector' : 'raster'));
+    if (preference == 'vector') {
+      mapboxgl.setRTLTextPlugin('${protocol}://${servername}/static/mapbox-gl-rtl-text.js');
+      var map = new mapboxgl.Map({
+        container: 'map',
+	style: '${style_json}',
+        hash: true
+      });
+      map.addControl(new mapboxgl.NavigationControl());
+    } else {
+	    var map = L.mapbox.map('map', '${style_json}', { zoomControl: false });
+      new L.Control.Zoom({ position: 'topright' }).addTo(map);
+      setTimeout(function() {
+        new L.Hash(map);
+      }, 0);
+    }
+  </script>
+</body>
+</html>
