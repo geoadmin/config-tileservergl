@@ -7,37 +7,34 @@ resource_type=""
 function usage {
   echo "Usage:"
   echo
-  echo "-h --help"
-  echo -e "--path \t : the root path to where your styles directories are stored."
-  echo -e "--type \t : the type of resource you're looking for (style or tileset)"
-  echo -e "example usage \t: ./jenkinsScripts/index_maker.sh --path=\"styles\" --version=\"\""
-  echo -e "another \t: ./jenkinsScript/index_maker.sh --path=\"/var/local/vectortiles/gl-styles\" --type=\"style\""
+  echo "-h  : show you this output here."
+  echo -e "-p \t : the root path to where your styles directories are stored."
+  echo -e "-t \t : the type of resource you're looking for (style or tileset)"
+  echo -e "example usage \t: ./jenkinsScripts/index_maker.sh -p \"/var/local/vectortiles/gl-styles\" -t \"style\""
 }
-if [ $# -gt 0 ]; then
-  while [ "${1:-}" != "" ]; do
-    PARAM=$(echo "${1}" | awk -F= '{print $1}')
-    VALUE=$(echo "${1}" | awk -F= '{print $2}')
-    case ${PARAM} in
-        --help)
-            usage
-            exit
-            ;;
-        --path)
-            resource_dir=${VALUE}
-            ;;
-        --type)
-            resource_type=${VALUE}
-            ;;
-        *)
-            (>&2  echo "ERROR: unknown parameter \"${PARAM}\"")
-            usage
-            exit 1
-            ;;
-    esac
-    shift
-  done
-fi
 
+while getopts :ht:p: opt "$@";do
+  case ${opt} in
+    h)
+      usage
+      exit
+      ;;
+    t)
+      resource_type=${OPTARG}
+      ;;
+    p)
+      resource_dir=${OPTARG}
+      ;;
+    \?)
+      echo "invalid option : -${OPTARG}" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -${OPTARG} requires an argument" >&2
+      exit 2
+      ;;
+  esac
+done
 
 index=${resource_dir}"/index.html"
 title=""
