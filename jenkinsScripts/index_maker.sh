@@ -54,13 +54,13 @@ case ${resource_type} in
   title="List of Gl Styles"
   title_fr=""
   title_de=""
-  template_used="./templates/styles_viewer.html.in"
+  template_used="./jenkinsScripts/templates/style_viewer.html.in"
   ;;
   tileset)
   title="List of Map Box Tiles Datasets"
   title_fr=""
   title_de=""
-  template_used="./templates/mbtiles_viewer.html.in"
+  template_used="./jenkinsScripts/templates/mbtiles_viewer.html.in"
   ;;
   *)
   (>&2 echo "ERROR: UNSUPPORTED RESOURCE TYPE \"${resource_type}\"")
@@ -96,7 +96,7 @@ for jsonfile in "${resource_dir}"/*/*/${resource_type}.json ; do
     let rel_url_length=${#relative_url}
     let rel_url_length-=${length_of_filename}
     relative_url=${relative_url:0:${rel_url_length}}
-    ${mako_path} --var "servername"="${servername}" --var "protocol"="${protocol}" --var "${resource_type}_json"="${protocol}://${servername}${relative_url}/${resource_type}.json" --var "layername"="${style_name}" ${template_used} > ${resource_dir}${relative_url}/index.html
+    ${mako_path} --var "servername"="${servername}" --var "protocol"="${protocol}" --var "${resource_type}_json"="${protocol}://${servername}/${dirname}${relative_url}/${resource_type}.json" --var "layername"="${style_name}" ${template_used} > ${resource_dir}${relative_url}/index.html
     echo "        <li>" >> ${index} 
     echo "          ${style_name} --> <a href=\"/${dirname}${relative_url}/${resource_type}.json\">\"JSON\"</a>   <a href=\"/${dirname}${relative_url}/index.html\">\"VIEWER\"</a>" >> ${index}
     echo "        </li>" >> ${index}
