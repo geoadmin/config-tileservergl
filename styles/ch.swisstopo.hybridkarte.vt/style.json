@@ -19,24 +19,24 @@
   },
   "sources": {
     "ch.swissnames3d": {
-      "url": "mbtiles://{ch.swisstopo.swissnames3d_1539076162}",
+      "url": "${protocol}://${servername}/mbtiles/ch.swisstopo.swissnames3d/v001/tileset.json",
       "type": "vector"
     },
     "ch.swisstopo.amtliches-strassenverzeichnis_validiert": {
-      "url": "mbtiles://{ch.swisstopo.amtliches-strassenverzeichnis_validiert_1539075924}",
+      "url": "${protocol}://${servername}/mbtiles/ch.swisstopo.amtliches-strassenverzeichnis_validiert/v001/tileset.json",
       "type": "vector"
     },
     "ch.bav.haltestellen-oev": {
-      "url": "mbtiles://{ch.bav.haltestellen-oev_1539076848}",
+      "url": "${protocol}://${servername}/mbtiles/ch.bav.haltestellen-oev/v001/tileset.json",
       "type": "vector"
     },
     "ch.swisstopo.swissimage": {
-      "url": "local://json/swissimage.json",
+      "url": "${protocol}://${servername}/json/swissimage.json",
       "type": "raster"
     }
   },
-  "sprite": "mapbox://sprites/vib2d/cjeeaiozg3icf2sn7c3gjazob",
-  "glyphs": "local://fonts/{fontstack}/{range}.pbf",
+  "sprite": "${protocol}://${servername}/gl-styles/ch.swisstopo.hybridkarte.vt/current/sprites",
+  "glyphs": "${protocol}://${servername}/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "swissimage_",
