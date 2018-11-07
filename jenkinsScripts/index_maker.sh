@@ -69,6 +69,16 @@ for jsonfile in "${resource_dir}"/*/*/${resource_type}.json ; do
     echo "        <li>" >> ${index} 
     echo "          ${style_name} --> <a href=\"${relative_url}\"></a>" >> ${index}
     echo "        </li>" >> ${index}
+    case ${resource_type} in
+      style)
+      ;;
+      tileset)
+      ;;
+      *)
+      (>&2 echo "ERROR: UNSUPPORTED RESOURCE TYPE \"${resource_type}\"")
+      exit 2
+      ;;
+    esac
   fi
 done
 echo "      </ul>" >> ${index}
