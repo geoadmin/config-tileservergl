@@ -37,7 +37,7 @@ function cleanup {
   rm -rf "$venv_path" || :
 }
 
-getopts ":hd:p:s:o:" opt; do
+while getopts ":hd:p:s:o:" opt; do
   case ${opt} in
     h)
       usage
