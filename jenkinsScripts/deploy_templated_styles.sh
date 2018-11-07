@@ -98,8 +98,8 @@ for directory in "${origin_directory}"/* ; do
   ${mako_path} --var 'protocol'="${mako_protocol_variable_value}" --var 'servername'="${mako_server_variable_value}" "${directory}"/style.json > "${base_path}"/current/style.json
 done
 
-mkdir -p "$destination_directory"/../json/
-cp "./json_sources/"*.json "$destination_directory"/../json/
+mkdir -p "${destination_directory}"/../json/
+cp ./json_sources/*.json "${destination_directory}"/../json/
 
 duration=$SECONDS
 echo "Elapsed time: $((duration / 60)) minutes and $((duration % 60)) seconds."
