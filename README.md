@@ -44,3 +44,42 @@ Sometimes, you will need to add a new map box tiles data source to the efs. You 
 ### obtain your geojson
 
 You're supposed to have a geojson as your basic data. This data should be in web mercator projection(EPSG:3857) For our example, we will call this data example.geojson
+
+
+
+### Templating in styles
+
+Tileserver gl makes use of templating to link resources on the system to its routes. The following templates are supported : 
+
+IN SOURCES : 
+``` JSON
+"[source_identifier_for_the_style_file]" : {
+"url" : "mbtiles://{source_id/source_version}",
+"type" : "vector"
+}, ...
+```
+This allows for an easy way to link sources and styles. It will look for the source in the directory specified for mbtiles in the configuration. It also replace the url by a route according to tileserver configuration.
+
+``` JSON
+"[source_identifier]" : {
+"url": "local://json/[json_file_name]",
+"type" : "raster"
+}, ...
+```
+For rasters, local:// will be replaced with the hostname.
+
+for sprites and glyphs, anything that isn't a direct URL ("http(s):// ...") will be transformed. 
+
+you should use 
+```JSON
+"sprite" : "[id]/[version]/sprite",
+"glyphs" : "local://fonts/{fontstack}/{range}.pbf",
+```
+for glyphs, this template corresponds to what it would become whatever you put in that spot. To keep consistency between what is deployed and what is in the files, we recommend using the template. 
+
+for sprites, anything put in there will create a route (local://gl-style/[style_complete_id]/sprite) that will lead to [path_to_sprites_folder]/[sprite_field]
+for example, if you tried to put "local://stylename/v001/sprite" it would link to "/var/local/efs-xxx/vectortiles/sprites/local://stylename/v001/sprite", which isn't helpful. 
+By giving stylename/v001/sprite it will lead to /var/local/efs-xxx/vectortiles/sprites/stylename/v001/sprite, which is where your sprites are supposed to be stored.
+
+
+
