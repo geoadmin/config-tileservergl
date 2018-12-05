@@ -66,9 +66,9 @@ This allows for an easy way to link sources and styles. It will look for the sou
 "type" : "raster"
 }, ...
 ```
-For rasters, local:// will be replaced with the hostname.
+For rasters, `local://` will be replaced with the hostname.
 
-for sprites and glyphs, anything that isn't a direct URL ("http(s):// ...") will be transformed. 
+for sprites and glyphs, anything that isn't a direct URL (`http(s):// ...`) will be transformed. 
 
 you should use 
 ```JSON
@@ -77,9 +77,9 @@ you should use
 ```
 for glyphs, this template corresponds to what it would become whatever you put in that spot. To keep consistency between what is deployed and what is in the files, we recommend using the template. 
 
-for sprites, anything put in there will create a route (local://gl-style/[style_complete_id]/sprite) that will lead to [path_to_sprites_folder]/[sprite_field]
-for example, if you tried to put "local://stylename/v001/sprite" it would link to "/var/local/efs-xxx/vectortiles/sprites/local://stylename/v001/sprite", which isn't helpful. 
-By giving stylename/v001/sprite it will lead to /var/local/efs-xxx/vectortiles/sprites/stylename/v001/sprite, which is where your sprites are supposed to be stored.
+for sprites, anything put in there will create a route (`local://gl-style/[style_complete_id]/sprite`) that will lead to `[path_to_sprites_folder]/[sprite_field]`
+for example, if you tried to put "`local://stylename/v001/sprite`" it would link to "/var/local/efs-xxx/vectortiles/sprites/local://stylename/v001/sprite", which isn't helpful. 
+By giving `stylename/v001/sprite` it will lead to /var/local/efs-xxx/vectortiles/sprites/stylename/v001/sprite, which is where your sprites are supposed to be stored.
 
 
 
