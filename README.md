@@ -133,7 +133,8 @@ Alternatively, you can deploy them directly to the efs the same way you did the 
 
 The naming convention is similar to the one of sources, with the styles stored, in the efs, under `vectortiles/styles/{name}/{version}/style.json`. In this repository, they should be stored in `styles/{name}/style.json`, as the version will be automatically added to the style upon deployment.
 
-If you plan to deploy your style manually, use the scp command given in the sources segment and replace `mbtiles` by `styles`. 
+If you plan to deploy your style manually, use the following scp command : 
+```BASH scp -r {PATH_TO_STYLE}/{name}/{version}/ geodata@10.220.5.211:/var/local/efs-{staging}/vectortiles/styles/{name}/{version}```
 
 If you plan on using the deploy script, you will be calling it from this repository root like so : 
 
@@ -149,7 +150,9 @@ Fonts are files that are stored in this repository and in the efs under `fonts` 
 
 Sprites are PNG images that are part of the styles, and JSON files that describe which part of the image correspond to which element on the maps. those files are stored in this repository under `styles/{name}/sprites/sprite[@(2|3?)].[json|png]$`, and deployed to the efs under `vectortiles/sprites/{name}/{version}/sprite[@(2|3?)].[json|png]$`
 
-They should be deployed with the script that deploys styles, or can be uploaded manually thanks to a scp command like in the sources section. The name should be the technical name of the style using these sprites, and the version should be the same as the deployed version of the style. 
+They should be deployed with the script that deploys styles, or can be uploaded manually thanks to a scp command like this one : 
+```BASH scp -r {PATH_TO_SPRITES}/{name}/{version}/ geodata@10.220.5.211:/var/local/efs-{staging}/vectortiles/sprites/{name}/{version}```
+The `{name}` should be the technical name of the style using these sprites, and the `{version}` should be the same as the deployed version of the style. 
 
 ### 5. wmts jsons
 
@@ -157,24 +160,108 @@ Wmts jsons are JSON files describing an external wmts resource, describing some 
 
 They are stored in this repository under `json_sources/{name}.json`, and in the efs under `/vectortiles/json/{name}.json`
 
-As other files stored within this repository, they are part of the standard script procedure for uploads, and can be uploaded manually with the scp command described before.
+As other files stored within this repository, they are part of the standard script procedure for uploads, and can be uploaded manually with a scp command : 
+```BASH scp {PATH_TO_JSON}/example.json geodata@10.220.5.211:/var/local/efs-{staging}/vectortiles/jsons/example.json```
 
-## 3. Makefile commands and their use
+
+## 3. Makefiles commands and their use
+
+Multiple makefiles command are present across all repositories to help build and deploy tileserver in a simple fashion. 
 
 ### 1. Building tileserver
 
+In the builder repository, two Makefiles command exists : 
+
+`Make build` and `Make push`. If the repository status is not clean (files have changed and are either not added, or not commited), the image tag will be "unstable". If the repository status is clean, the tag will be the shortened commit hash. 
+
+for `Make build` to work, the ORGNAME environment variable should be set to swisstopo. If it isn't set, the following should appear on your screen : 
+```
+Environment variable ORGNAME not set.
+Makefile:14: recipe for target 'build' failed
+```
+If the variable is set, it should start to build the image for the container.
+
+when using `Make push`, you should have an output like this one :
+
+```
+swisstopo/tileserver-gl:unstable
+The push refers to a repository [docker.io/swisstopo/tileserver-gl]
+8770ebc495d8: Pushed 
+55e895a91d80: Pushed 
+ffc451f2e09c: Layer already exists 
+055ad34ccd95: Layer already exists 
+cdd5212b4ec2: Layer already exists 
+0d2a880563e6: Layer already exists 
+9f91c21c42a2: Layer already exists 
+d8293569bfa4: Layer already exists 
+c4d021050ecd: Layer already exists 
+9978d084fd77: Layer already exists 
+1191b3f5862a: Layer already exists 
+08a01612ffca: Layer already exists 
+8bb25f9cdc41: Layer already exists 
+f715ed19c28b: Layer already exists 
+```
+
+As you can see on the first line, you can find the image full name. The tag in this example is, "unstable".
+
 ### 2. Building the configuration
+
+The configurations for tileserver and nginx are build in this repository, and the makefiles lies in the docker directory. From there, call `Make build` and `Make push` to build and push the configurations. 
+
+Nginx is a static configuration while tileserver is a dynamic configuration that is generated on the fly on a new run or deploy, based on the directories in the corresponding efs. This can generate two different configurations depending on which image tag you use. 
+`8fb00a6` will create an id with underscores replacing the slashes in the path (for example, a source in `mbtiles/exampleSource/version/tiles.mbtiles` will become `exampleSource_version`)
+`387011b` will create an id which translate directly the paths to an id (with the same example as before, the id would be `exampleSource/version`) 
+This configuration generation expects the file system's architecture to be as described before in section 2. 
 
 ### 3. Running Tileserver locally
 
+From the deploy repository, the generic command `Make run-{PROJECT}-{STAGING}` can run any project with a directory in the repository. As tileservergl is one of the directories of this project, you can call `Make run-tileservergl-{STAGING}`, `{STAGING}` being either dev, int or prod. 
+
+Inside the tileservergl, you'll find the following important files : 
+```
+dev.arg
+dev.env
+docker-compose.yml.in
+int.arg
+int.env
+prod.arg
+prod.env
+rancher-compose.yml.in
+```
+the `*.arg` files contan arguments for the mako rendering of the docker compose and rancher compose. If you open, for example, dev.arg : 
+```dev.arg
+--var staging=dev
+--var nginx_config_tag=5ce7236
+--var tileserver_tag=7b81177
+--var nginx_tag=1.14
+--var ci=false
+--var config_tag=387011b
+```
+It mainly gives you the tags for the images used in the dev version of tileserver. If you want to test an unstable version of tileservergl, you can change `tileserver_tag` value to `unstable`, and you're ready to test your changes with the rest of the containers remaining unchanged. 
+
+the `*.env` files contain environment variables used by the docker compose file. Unless a new implementation of one of the different containers requires a new environment variable, or we change some conventions, you shouldn't need to change this file. Its content is quite self explanatory. 
+
+```dev.env
+STYLES=styles
+TILES=mbtiles
+FONTS=fonts
+SPRITES=sprites
+SERVERPATH=mbtiles
+SERVER_DATA_PATH=mbtiles
+SERVER_STYLES_PATH=gl-styles
+```
+finally, templates for the docker compose and rancher compose file (`*.in` files). If you need to change them, that means the containers architecture has changed, and that some parts of this documentation might be out of date.
+
 ### 4. Deploying Tileserver to Rancher
+
+The same as running locally, but you need to use `rancherdeploy-tileservergl-{STAGING}` instead of `run`. If you do not have the accesses to rancher within your workstation, you will be denied your command and you won't be able to deploy. If you're denied and you would be supposed to be able to deploy tileserver on the desired environment, make the necessary procedures to get these accesses. 
+If you were not supposed to have these accesses, then don't use this command as it will not do anything.
 
 ## 4. How to work in the differents parts of tileserver ?
 
-## 5. Running tileserver locally and deploying it.
 
-## 6. Proper Workflow
+## 5. Proper Workflow
 
-## 7. How to create sources
+## 6. How to create sources
 
-## 8. How to create styles
+## 7. How to create styles
