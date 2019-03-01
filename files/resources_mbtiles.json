@@ -1,0 +1,14 @@
+{
+  "mbtiles": {
+    "ch.swisstopo.leichte-basiskarte.vt":{
+      "versions": [
+        "v006"
+      ]
+    },
+    "org.openstreetmap-openmaptiles.vt":{
+      "versions": [
+        "v001"
+      ]
+    }
+  }
+}
